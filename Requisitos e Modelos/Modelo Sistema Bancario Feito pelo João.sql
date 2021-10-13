@@ -1,0 +1,50 @@
+--use sistemaBancario;
+
+--CREATE TABLE TipoUsuario(
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    NomeTipo VARCHAR(100) NOT NULL
+--);
+
+--CREATE TABLE Usuario(
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    Nome VARCHAR(100) NOT NULL,
+--    Sobrenome VARCHAR(150) NOT NULL,
+--    CPF VARCHAR(11) NULL UNIQUE,
+--    CNPJ VARCHAR(20) NULL UNIQUE,
+--    NomeEmpresa VARCHAR(256) NULL,
+--    Email VARCHAR(256) NOT NULL UNIQUE,
+--    Senha VARCHAR(100) NOT NULL,
+--	Id_TipoUsuario INT NOT NULL,
+--    FOREIGN KEY (Id_TipoUsuario) REFERENCES TipoUsuario(Id) ON DELETE CASCADE ON UPDATE CASCADE 
+--);
+
+--CREATE TABLE Telefone(
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    DDD VARCHAR(5) NOT NULL,
+--    Telefone VARCHAR(9) NOT NULL UNIQUE,
+--	Id_Usuario INT NOT NULL,
+--    FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id) ON DELETE CASCADE ON UPDATE CASCADE 
+--);
+
+--CREATE TABLE Endereco(
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    Pais VARCHAR (100) NOT NULL,
+--    Estado VARCHAR (100) NOT NULL,
+--    Cidade VARCHAR (100) NOT NULL,
+--    Bairro VARCHAR (100) NOT NULL,
+--    Rua VARCHAR (100) NOT NULL,
+--    Numero VARCHAR (100) NOT NULL,
+--    Complemento VARCHAR (100) NOT NULL,
+--	  Id_Usuario INT NOT NULL,
+--    FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id) ON DELETE CASCADE ON UPDATE CASCADE 
+--);
+
+--CREATE TABLE Conta(
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    NumeroDaConta INTEGER NOT NULL UNIQUE,
+--    DataDeCadastro DATE NOT NULL,
+--    Saldo DECIMAL NULL,
+--    LimiteDoUsuario DECIMAL NOT NULL,
+--    Id_Usuario INT NOT NULL,
+--    FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id) ON DELETE CASCADE ON UPDATE CASCADE 
+--);
