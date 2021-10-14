@@ -17,16 +17,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Banco dos panquecas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                </ul>
-            </div>
+
+            @if (Session["usuarioLogadoID"] != null)
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Transferência", "Transferencias", "Transferencia")</li>
+                        <li>@Html.ActionLink("Pagamentos", "Pagamentos", "Pagamentos")</li>
+                        <li>@Html.ActionLink("Empréstimos", "Emprestimos", "Emprestimos")</li>
+                        <li>@Html.ActionLink("Depositos", "Depositos", "Depositos")</li>
+                    </ul>
+                </div>
+            }
+
+            else
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Abra sua Conta", "Create", "Usuario")</li>
+                        <li>@Html.ActionLink("Acesse sua Conta", "About", "Home")</li>
+                        <li>@Html.ActionLink("Sobre Nós", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            }   
+
         </div>
     </div>
     <div class="container body-content">
