@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
@@ -28,7 +28,6 @@
                         <li>@Html.ActionLink("Pagamentos", "Pagamentos", "Pagamentos")</li>
                         <li>@Html.ActionLink("Empréstimos", "Emprestimos", "Emprestimos")</li>
                         <li>@Html.ActionLink("Depositos", "Depositos", "Depositos")</li>
-                        <li></li>
                     </ul>
                 </div>
             }
@@ -37,12 +36,37 @@
             {
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Abra sua Conta", "Create", "Usuario")</li>
-                        <li>@Html.ActionLink("Acesse sua Conta", "About", "Home")</li>
-                        <li>@Html.ActionLink("Sobre Nós", "Contact", "Home")</li>
+
+                        <li>@Html.ActionLink("Transferência", "Transferencias", "Transferencia")</li>
+                        <li>@Html.ActionLink("Pagamentos", "Pagamentos", "Pagamentos")</li>
+                        <li>@Html.ActionLink("Empréstimos", "Emprestimos", "Emprestimos")</li>
+                        <li>@Html.ActionLink("Depositos", "Depositos", "Depositos")</li>
+
+                    </ul>
+
+                    <ul class="nav navbar-nav mr-auto" style="float: right">
+
+                        <li class="dropdown">
+                            <a class="  dropdown-toggle" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Meu perfil
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div accesskey="" class="card  text-center" style="width: 18rem;">
+                                    <img class="card-img-top" src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-128.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center"> Usuário: nomeUsuario </h5>
+
+                                        <a href="#" class="btn btn-default text-center">Configurações</a>
+                                        <a href="#" class="btn btn-default text-center">Sair</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
-            }   
+            }
 
         </div>
     </div>
