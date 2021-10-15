@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,14 @@ namespace SistemaBancario.Models
         public string Email { get; set; }
         public string Senha { get; set; }
         public TipoUsuarios TipoUsuarios { get; set; }
+        public DateTime DataDeNascimento { get; set; }
+        public Sexo Sexo { get; set; }
+        public EstadoCivil EstadoCivil { get; set; }
+        public AtividadeAtual AtividadeAtual { get; set; }
         public int Id_TipoUsuario { get; set; }
+
+        public Telefones Telefones { get; set; }
+
+        public Enderecos Enderecos { get; set; }
     }
 }

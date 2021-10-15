@@ -138,12 +138,17 @@
     </Compile>
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Enderecos.cs" />
+    <Compile Include="Models\Enums\AtividadeAtual.cs" />
+    <Compile Include="Models\Enums\EstadoCivil.cs" />
+    <Compile Include="Models\Enums\NomeTipo.cs" />
+    <Compile Include="Models\Enums\Sexo.cs" />
     <Compile Include="Models\Telefones.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
