@@ -130,6 +130,7 @@
     <Compile Include="Controllers\DepositosController.cs" />
     <Compile Include="Controllers\EmprestimosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagamentosController.cs" />
     <Compile Include="Controllers\TransferenciaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -202,6 +203,7 @@
     <Content Include="Views\Pagamentos\Pagamentos.cshtml" />
     <Content Include="Views\Emprestimos\Emprestimos.cshtml" />
     <Content Include="Views\Depositos\Depositos.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
