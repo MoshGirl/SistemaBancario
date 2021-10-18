@@ -47,13 +47,61 @@ namespace SistemaBancario.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,CPF,CNPJ,NomeEmpresa,Email,Senha,Id_TipoUsuario")] Usuarios usuarios)
+        public ActionResult Create( Usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
+                Usuarios user = new Usuarios();
+                Telefones tel = new Telefones();
+                Enderecos end = new Enderecos();
+
+
+
+
+                tel.DDD = usuarios.Telefones.DDD;
+                tel.Telefone = usuarios.Telefones.Telefone;
+                //tel.Id_Usuario = usuarios.Id;
+
+                end.Pais = usuarios.Enderecos.Pais;
+                end.Estado = usuarios.Enderecos.Estado;
+                end.Cidade = usuarios.Enderecos.Cidade;
+                end.Bairro = usuarios.Enderecos.Bairro;
+                end.Rua = usuarios.Enderecos.Rua;
+                end.Numero = usuarios.Enderecos.Numero;
+                end.Complemento = usuarios.Enderecos.Complemento;
+                //end.Id_Usuario = usuarios.Id;
+
+                user.Nome = usuarios.Nome;
+                user.Sobrenome = usuarios.Sobrenome;
+                user.CPF = usuarios.CPF;
+                user.CNPJ = usuarios.CNPJ;
+                user.NomeEmpresa = usuarios.NomeEmpresa;
+                user.Email = usuarios.Email;
+                user.Senha = usuarios.Senha;
+                //user.TipoUsuarios = null;
+                
+                user.DataDeNascimento = usuarios.DataDeNascimento;
+                user.Sexo = usuarios.Sexo;
+                user.EstadoCivil = usuarios.EstadoCivil;
+                user.AtividadeAtual = usuarios.AtividadeAtual;
+
+
+                user.Enderecos = end;
+                user.Telefones = tel;
+
+
+                user.Enderecos.Pais = end.Pais;
+                user.Enderecos.Estado = end.Estado;
+                user.Enderecos.Cidade = end.Cidade;
+                user.Enderecos.Bairro = end.Bairro;
+                user.Enderecos.Rua = end.Rua;
+                user.Enderecos.Numero = end.Numero;
+                user.Enderecos.Complemento = end.Complemento;
+                //user.Enderecos.Id_Usuario = usuarios.Id;
+
                 db.Usuarios.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Home");
             }
 
             return View(usuarios);

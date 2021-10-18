@@ -6,9 +6,9 @@ using System.Web;
 
 namespace SistemaBancario.Models
 {
-    public class TipoUsuarios
-    {
-        public int Id { get; set; }
-        public NomeTipo NomeTipo { get; set; }
-    }
+    //public class TipoUsuarios
+    //{
+    //    public int Id { get; set; }
+    //    public NomeTipo NomeTipo { get; set; }
+    //}
 }
