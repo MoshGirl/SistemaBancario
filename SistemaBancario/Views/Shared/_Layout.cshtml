@@ -20,14 +20,12 @@
                 @Html.ActionLink("Banco dos panquecas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
 
-            @if (Session["usuarioLogadoID"] != null)
+            @if (Session["usuarioLogadoID"] == null)
             {
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Transferência", "Transferencias", "Transferencia")</li>
-                        <li>@Html.ActionLink("Pagamentos", "Pagamentos", "Pagamentos")</li>
-                        <li>@Html.ActionLink("Empréstimos", "Emprestimos", "Emprestimos")</li>
-                        <li>@Html.ActionLink("Depositos", "Depositos", "Depositos")</li>
+                    <ul class="nav navbar-nav mr-auto" style="float: right">
+                        <li>@Html.ActionLink("Cadastre-se", "Create", "Usuario")</li>
+
                     </ul>
                 </div>
             }
