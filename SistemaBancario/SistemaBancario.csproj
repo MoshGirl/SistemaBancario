@@ -148,6 +148,7 @@
     <Compile Include="Models\Enums\EstadoCivil.cs" />
     <Compile Include="Models\Enums\NomeTipo.cs" />
     <Compile Include="Models\Enums\Sexo.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Telefones.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
     <Compile Include="Models\Usuarios.cs" />
@@ -204,6 +205,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="img\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
