@@ -136,13 +136,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110131837065_InitialCreate.cs" />
-    <Compile Include="Migrations\202110131837065_InitialCreate.Designer.cs">
-      <DependentUpon>202110131837065_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110181516220_migration.cs" />
-    <Compile Include="Migrations\202110181516220_migration.Designer.cs">
-      <DependentUpon>202110181516220_migration.cs</DependentUpon>
+    <Compile Include="Migrations\202110182051411_AddInitialMigration.cs" />
+    <Compile Include="Migrations\202110182051411_AddInitialMigration.Designer.cs">
+      <DependentUpon>202110182051411_AddInitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conta.cs" />
@@ -221,11 +217,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110131837065_InitialCreate.resx">
-      <DependentUpon>202110131837065_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110181516220_migration.resx">
-      <DependentUpon>202110181516220_migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110182051411_AddInitialMigration.resx">
+      <DependentUpon>202110182051411_AddInitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

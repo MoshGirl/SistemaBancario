@@ -268,6 +268,5 @@ C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.CoreCompi
 C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.CopyComplete
 C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.dll
 C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.pdb
-C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Migrations.InitialCreate.resources
-C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Migrations.migration.resources
+C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Migrations.AddInitialMigration.resources
 C:\C#\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.GenerateResource.cache
