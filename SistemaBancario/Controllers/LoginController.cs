@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace SistemaBancario.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private object ValidarUsuario;
