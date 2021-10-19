@@ -10,6 +10,10 @@ namespace SistemaBancario.AcessoDados
 {
     public class UsuarioContext : DbContext
     {
+        public UsuarioContext() : base("DefaultConnection")
+        {
+        }
+
         public DbSet <Usuarios> Usuarios { get; set; }
         public DbSet <Enderecos> Enderecos { get; set; }
         public DbSet <Conta> Conta { get; set; }

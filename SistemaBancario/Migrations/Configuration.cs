@@ -10,7 +10,6 @@ namespace SistemaBancario.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "SistemaBancario.AcessoDados.UsuarioContext";
         }
 
         protected override void Seed(SistemaBancario.AcessoDados.UsuarioContext context)
