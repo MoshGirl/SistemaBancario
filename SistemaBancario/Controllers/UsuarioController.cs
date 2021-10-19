@@ -22,6 +22,7 @@ namespace SistemaBancario.Controllers
         }
 
         // GET: Usuario/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -29,6 +30,9 @@ namespace SistemaBancario.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Usuarios usuarios = db.Usuarios.Find(id);
+            Telefones tel = db.Telefones.Find(id);
+            Enderecos end = db.Enderecos.Find(id);
+
             if (usuarios == null)
             {
                 return HttpNotFound();
@@ -37,6 +41,7 @@ namespace SistemaBancario.Controllers
         }
 
         // GET: Usuario/Create
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +52,8 @@ namespace SistemaBancario.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        
         public ActionResult Create( Usuarios usuarios)
         {
             if (ModelState.IsValid)

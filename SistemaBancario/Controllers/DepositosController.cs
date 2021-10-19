@@ -9,10 +9,12 @@ namespace SistemaBancario.Controllers
     public class DepositosController : Controller
     {
         // GET: Depositos
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize]
         public ActionResult Depositos()
         {
             return View();
