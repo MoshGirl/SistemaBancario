@@ -197,9 +197,9 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Transferencia\Transferencias.cshtml" />
     <Content Include="Views\Pagamentos\Pagamentos.cshtml" />
-    <Content Include="Views\Emprestimos\Emprestimos.cshtml" />
     <Content Include="Views\Depositos\Depositos.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Emprestimos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
