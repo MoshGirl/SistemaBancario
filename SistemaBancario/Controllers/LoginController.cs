@@ -12,7 +12,6 @@ namespace SistemaBancario.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
-        private object ValidarUsuario;
 
         // GET: Login
         [AllowAnonymous]
@@ -29,7 +28,7 @@ namespace SistemaBancario.Controllers
         [HttpPost]
         public ActionResult Login(string cpf, string senha)
         {
-            var loguei = false;
+            //var loguei = false;
 
             var db = new UsuarioContext();
 
@@ -40,7 +39,7 @@ namespace SistemaBancario.Controllers
             {
                 Usuarios user = new Usuarios();
                 FormsAuthentication.SetAuthCookie(user.CPF, true);
-                loguei = true;
+                //loguei = true;
 
             }
 

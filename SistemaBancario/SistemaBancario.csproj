@@ -143,6 +143,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conta.cs" />
+    <Compile Include="Models\Emprestimos.cs" />
     <Compile Include="Models\Enderecos.cs" />
     <Compile Include="Models\Enums\AtividadeAtual.cs" />
     <Compile Include="Models\Enums\EstadoCivil.cs" />
