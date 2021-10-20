@@ -20,7 +20,7 @@
                 @Html.ActionLink("Banco dos panquecas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
 
-            @if (!Request.IsAuthenticated)
+            @if (Session["usuarioLogadoID"] == null)
             {
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav mr-auto" style="float: right">
