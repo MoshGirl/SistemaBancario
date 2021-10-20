@@ -22,7 +22,6 @@ namespace SistemaBancario.Controllers
         [HttpPost]
         public ActionResult Login(string cpf, string senha)
         {
-            var loguei = false;
 
             var db = new UsuarioContext();
 
@@ -32,9 +31,7 @@ namespace SistemaBancario.Controllers
             if (v != null)
             {
                 Usuarios user = new Usuarios();
-                FormsAuthentication.SetAuthCookie(cpf, true);
-                loguei = true;
-
+                FormsAuthentication.SetAuthCookie(user.CPF, true);
             }
 
             return RedirectToAction("Index", "Home"); 
