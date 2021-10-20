@@ -16,6 +16,7 @@ namespace SistemaBancario.Controllers
         private UsuarioContext db = new UsuarioContext();
 
         // GET: Usuario
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Usuarios.ToList());
@@ -47,6 +48,11 @@ namespace SistemaBancario.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< Updated upstream
+=======
+
+        [AllowAnonymous]
+>>>>>>> Stashed changes
         public ActionResult Create( Usuarios usuarios)
         {
             if (ModelState.IsValid)

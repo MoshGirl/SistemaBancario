@@ -9,6 +9,10 @@ namespace SistemaBancario.Controllers
     public class EmprestimosController : Controller
     {
         // GET: Emprestimos
+<<<<<<< Updated upstream
+=======
+        [AllowAnonymous]
+>>>>>>> Stashed changes
         public ActionResult Index()
         {
             return View();

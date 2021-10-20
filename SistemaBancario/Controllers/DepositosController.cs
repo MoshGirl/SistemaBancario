@@ -9,6 +9,10 @@ namespace SistemaBancario.Controllers
     public class DepositosController : Controller
     {
         // GET: Depositos
+<<<<<<< Updated upstream
+=======
+        [AllowAnonymous]
+>>>>>>> Stashed changes
         public ActionResult Index()
         {
             return View();
