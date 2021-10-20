@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace SistemaBancario.Controllers
 {
-    [AllowAnonymous]
+
     public class LoginController : Controller
     {
         private object ValidarUsuario;
@@ -29,7 +29,6 @@ namespace SistemaBancario.Controllers
         [HttpPost]
         public ActionResult Login(string cpf, string senha)
         {
-            var loguei = false;
 
             var db = new UsuarioContext();
 
@@ -39,9 +38,11 @@ namespace SistemaBancario.Controllers
             if (v != null)
             {
                 Usuarios user = new Usuarios();
-                FormsAuthentication.SetAuthCookie(user.CPF, true);
-                loguei = true;
+                FormsAuthentication.SetAuthCookie(cpf, true);
 
+                //user = (Usuarios)db.Usuarios.Where(a => a.CPF.Equals(cpf)).FirstOrDefault();
+                //Session["usuarioLogadoID"] = user.Id; 
+                //ViewBag.IdLogado = Session["usuarioLogadoID"];
             }
 
             return RedirectToAction("Index", "Home"); 
