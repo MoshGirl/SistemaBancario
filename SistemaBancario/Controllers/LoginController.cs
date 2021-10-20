@@ -28,8 +28,6 @@ namespace SistemaBancario.Controllers
         [HttpPost]
         public ActionResult Login(string cpf, string senha)
         {
-            var loguei = false;
-
             var db = new UsuarioContext();
 
            
@@ -39,7 +37,8 @@ namespace SistemaBancario.Controllers
             {
                 Usuarios user = new Usuarios();
                 FormsAuthentication.SetAuthCookie(user.CPF, true);
-                loguei = true;
+                Session["usuarioLogadoID"] = v.Id.ToString();
+                Session["nomeUsuarioLogado"] = v.Nome.ToString()+ v.Sobrenome.ToString();
 
             }
 

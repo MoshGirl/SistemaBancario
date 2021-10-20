@@ -149,6 +149,7 @@
     <Compile Include="Models\Enums\NomeTipo.cs" />
     <Compile Include="Models\Enums\Sexo.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\NomeCompleto.cs" />
     <Compile Include="Models\Telefones.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
     <Compile Include="Models\Usuarios.cs" />

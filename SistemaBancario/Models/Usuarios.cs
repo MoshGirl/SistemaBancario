@@ -30,4 +30,5 @@ namespace SistemaBancario.Models
         public Telefones Telefones { get; set; }
         public Enderecos Enderecos { get; set; }
     }
+
 }
