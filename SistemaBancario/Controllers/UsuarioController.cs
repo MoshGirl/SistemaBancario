@@ -48,11 +48,9 @@ namespace SistemaBancario.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< Updated upstream
-=======
 
         [AllowAnonymous]
->>>>>>> Stashed changes
+
         public ActionResult Create( Usuarios usuarios)
         {
             if (ModelState.IsValid)
