@@ -8,8 +8,6 @@ namespace SistemaBancario.Controllers
 {
     public class EmprestimosController : Controller
     {
-        // GET: Emprestimos
-
         [AllowAnonymous]
 
         public ActionResult Index()

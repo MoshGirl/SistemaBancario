@@ -29,17 +29,21 @@ namespace SistemaBancario.Controllers
             var db = new UsuarioContext();
 
            
-            var userValidacao = db.Usuarios.Where(a => a.CPF.Equals(cpf) && a.Senha.Equals(senha)).FirstOrDefault();
+            var usuario = db.Usuarios.Where(a => a.CPF.Equals(cpf) && a.Senha.Equals(senha)).FirstOrDefault();
 
-            if (userValidacao != null)
+            if (usuario != null)
             {
+                Usuarios user = new Usuarios();
                 FormsAuthentication.SetAuthCookie(cpf, true);
-                Session["UsuarioLogadoNome"] = userValidacao.Nome;
-                Session["UsuarioLogadoId"] = userValidacao.Id;
-
             }
 
             return RedirectToAction("Index", "Home"); 
+        }
+
+        public void SingOut()
+        {
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
         }
 
     }
