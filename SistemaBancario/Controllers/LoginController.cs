@@ -35,15 +35,20 @@ namespace SistemaBancario.Controllers
             {
                 Usuarios user = new Usuarios();
                 FormsAuthentication.SetAuthCookie(cpf, true);
+                @Session["UsuarioLogadoNome"] = usuario.Nome;
+                @Session["UsuarioLogadoId"] = usuario.Id;
             }
 
             return RedirectToAction("Index", "Home"); 
         }
 
-        public void SingOut()
+        
+        public ActionResult SingOut()
         {
             FormsAuthentication.SignOut();
             FormsAuthentication.RedirectToLoginPage();
+
+            return RedirectToAction("Index", "Home");
         }
 
     }
