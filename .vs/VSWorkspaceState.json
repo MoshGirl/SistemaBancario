@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SistemaBancario",
+    "\\SistemaBancario\\Controllers",
+    "\\SistemaBancario\\Views",
+    "\\SistemaBancario\\Views\\Emprestimos",
+    "\\SistemaBancario\\Views\\Shared"
+  ],
+  "SelectedNode": "\\SistemaBancario\\Views\\Shared\\_Layout.cshtml",
+  "PreviewInSolutionExplorer": false
+}
