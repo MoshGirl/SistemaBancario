@@ -30,6 +30,8 @@ namespace SistemaBancario.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Usuarios usuarios = db.Usuarios.Find(id);
+            Telefones telefone = db.Telefones.Find(id);
+            Enderecos endereco = db.Enderecos.Find(id);
             if (usuarios == null)
             {
                 return HttpNotFound();

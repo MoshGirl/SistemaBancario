@@ -38,7 +38,7 @@
 
                         <li>@Html.ActionLink("Transferência", "Transferencias", "Transferencia")</li>
                         <li>@Html.ActionLink("Pagamentos", "Pagamentos", "Pagamentos")</li>
-                        <li>@Html.ActionLink("Empréstimos", "Emprestimos", "Emprestimos")</li>
+                        <li>@Html.ActionLink("Empréstimos", "Index", "Emprestimos")</li>
                         <li>@Html.ActionLink("Depositos", "Depositos", "Depositos")</li>
 
                     </ul>
@@ -57,7 +57,7 @@
                                         <h5 class="card-title text-center"> Usuário: @Session["UsuarioLogadoNome"] </h5>
 
                                         <a href="/Usuario/Edit/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Configurações</a>
-                                        <a href="#" class="btn btn-default text-center">Sair</a>
+                                        <a href="/Login/Singout/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Sair</a>
 
                                     </div>
                                 </div>
