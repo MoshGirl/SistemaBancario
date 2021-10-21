@@ -15,7 +15,7 @@ namespace SistemaBancario.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Um pouco sobre o projeto desenvolvido.";
 
             return View();
         }
