@@ -31,8 +31,10 @@ namespace SistemaBancario.Controllers
             }
             var idLogado = Session["UsuarioLogadoId"];
             Usuarios usuarios = db.Usuarios.Find(id);
-            Enderecos end = db.Enderecos.Find(id);
-            Telefones tel = db.Telefones.Find(id);
+
+            Telefones telefone = db.Telefones.Find(id);
+            Enderecos endereco = db.Enderecos.Find(id);
+
             if (usuarios == null)
             {
                 return HttpNotFound();
