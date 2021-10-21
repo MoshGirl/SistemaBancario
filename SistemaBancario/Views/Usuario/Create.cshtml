@@ -106,33 +106,36 @@
             </div>
         </div>
         <hr />
+        <div id="pessoas">
 
-        <div>
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="options" id="PessoaFisica"> Pessoa Física
-                </label>
-                <label class="btn btn-primary active">
-                    <input type="radio" name="options" id="PessoaJuridica"> Pessoa Juridica
-                </label>
+            <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#pessoaFisica" aria-expanded="false" aria-controls="pessoaFisica" onclick= "pessoaJuridica.collapse('hide')">
+                    Pessoa Física
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#pessoaJuridica" aria-expanded="false" aria-controls="pessoaJuridica">
+                    Pessoa Juridica
+                </button>
+            </p>
+            <div class="collapse" id="pessoaFisica" data-parent="#pessoas">
+                <div class="card card-body">
+                    @Html.LabelFor(model => model.CPF)
+                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                </div>
             </div>
-            <br /> <br />
-            <div>
-                @Html.LabelFor(model => model.CPF)
-                @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
-            </div>
-            <div>
-                <div class="row">
-                    <div class="col-md-5">
-                        @Html.LabelFor(model => model.CNPJ)
-                        @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CNPJ, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col-md-5">
-                        @Html.LabelFor(model => model.NomeEmpresa, "Nome da Empresa")
-                        @Html.EditorFor(model => model.NomeEmpresa, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NomeEmpresa, "", new { @class = "text-danger" })
+            <div class="collapse" id="pessoaJuridica" data-parent="#pessoas">
+                <div class="card card-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            @Html.LabelFor(model => model.CNPJ)
+                            @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CNPJ, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-5">
+                            @Html.LabelFor(model => model.NomeEmpresa, "Nome da Empresa")
+                            @Html.EditorFor(model => model.NomeEmpresa, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NomeEmpresa, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +183,7 @@
         </div>
         <hr />
 
-        <div class="form-check" >
+        <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" onclick="habilitar(this.checked)">
             <label class="form-check-label" for="flexCheckDefault">
                 Você aceita os <a href="http://www.engeplus.com.br/noticia/videos-e-diversao/2006/as-piores-piadas-do-mundo">Termos e Condições</a>?
@@ -189,7 +192,7 @@
             <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Salvar" class="btn btn-default" disabled id="salvar"/>
+                    <input type="submit" value="Salvar" class="btn btn-default" disabled id="salvar" />
                 </div>
             </div>
             <hr />
