@@ -141,6 +141,10 @@
     <Compile Include="Migrations\202110182051411_AddInitialMigration.Designer.cs">
       <DependentUpon>202110182051411_AddInitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110211346165_2110.cs" />
+    <Compile Include="Migrations\202110211346165_2110.Designer.cs">
+      <DependentUpon>202110211346165_2110.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Emprestimos.cs" />
@@ -223,6 +227,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202110182051411_AddInitialMigration.resx">
       <DependentUpon>202110182051411_AddInitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110211346165_2110.resx">
+      <DependentUpon>202110211346165_2110.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

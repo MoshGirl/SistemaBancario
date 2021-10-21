@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Banco dos Panacas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="~/home" class = "navbar-brand" > Banco dos Panacas</a>
             </div>
 
             @if (!Request.IsAuthenticated)
@@ -56,12 +56,9 @@
                                     <div class="card-body">
                                         <h5 class="card-title text-center"> Usuário: @Session["UsuarioLogadoNome"] </h5>
 
-
                                         <a href="/Usuario/Edit/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Configurações</a>
                                         <a href="/Login/Singout/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Sair</a>
-
-
-                                        <a href="/Login/Singout/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Sair</a>
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -76,8 +73,10 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+        <footer class="navbar-fixed-bottom">
+            <center>
+                <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+            </center>
         </footer>
     </div>
 
