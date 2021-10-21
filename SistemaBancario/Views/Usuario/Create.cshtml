@@ -179,8 +179,9 @@
             </div>
         </div>
         <hr />
+
         <div class="form-check" >
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" value="" onclick="habilitar(this.checked)">
             <label class="form-check-label" for="flexCheckDefault">
                 Você aceita os termos e condições?
             </label>
@@ -188,7 +189,7 @@
             <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Salvar" class="btn btn-default"/>
+                    <input type="submit" value="Salvar" class="btn btn-default" disabled id="salvar"/>
                 </div>
             </div>
             <hr />
@@ -203,3 +204,15 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+<script type="text/javascript">
+    function habilitar(selecionado) {
+        if (selecionado == true)
+            document.getElementById('salvar').disabled = false;
+        else
+            document.getElementById('salvar').disabled = true;
+    }
+</script>
+
+
