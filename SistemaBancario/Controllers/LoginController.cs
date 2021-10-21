@@ -35,6 +35,8 @@ namespace SistemaBancario.Controllers
             {
                 Usuarios user = new Usuarios();
                 FormsAuthentication.SetAuthCookie(cpf, true);
+                Session["UsuarioLogadoNome"] = usuario.Nome;
+                Session["UsuarioLogadoId"] = usuario.Id;
             }
 
             return RedirectToAction("Index", "Home"); 
