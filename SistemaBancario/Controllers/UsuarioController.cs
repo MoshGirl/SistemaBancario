@@ -29,9 +29,12 @@ namespace SistemaBancario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var idLogado = Session["UsuarioLogadoId"];
             Usuarios usuarios = db.Usuarios.Find(id);
+
             Telefones telefone = db.Telefones.Find(id);
             Enderecos endereco = db.Enderecos.Find(id);
+
             if (usuarios == null)
             {
                 return HttpNotFound();
@@ -74,10 +77,16 @@ namespace SistemaBancario.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Usuarios usuarios = db.Usuarios.Find(id);
+            Enderecos end = db.Enderecos.Find(id);
+            Telefones tel = db.Telefones.Find(id);
+
             if (usuarios == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Tel = tel;
+            ViewBag.End = end;
+
             return View(usuarios);
         }
 

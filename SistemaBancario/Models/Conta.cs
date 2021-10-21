@@ -14,7 +14,6 @@ namespace SistemaBancario.Models
         public DateTime DataDaConta { get; set; }
         public decimal Saldo { get; set; }
         public string LimiteDoUsuario { get; set; }
-        public string Complemento { get; set; }
 
         //public Usuarios Usuarios;
         //public int Id_Usuario { get; set; }
