@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@if (!Request.IsAuthenticated) {
 
 <div class="jumbotron">
     <h1>Banco dos Panquecas</h1>
@@ -14,7 +15,7 @@
         <p>
             Tenha todas as vantagens de um banco com as praticidades da internet. Abra sua conta hoje mesmo!!!
         </p>
-        <p><a class="btn btn-default" href="https://localhost:44378/Usuario/Create">Cadastre-se &raquo;</a></p>
+        <p><a class="btn btn-default" href="~/Usuario/Create">Cadastre-se &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Conheça nossos serviços:</h2>
@@ -25,6 +26,132 @@
         <h2>Sobre nós</h2>
         <p>Conheça um pouco sobre a nossa história.</p>
         <br />
-        <p><a class="btn btn-default" href="https://localhost:44378/home/about">Saiba mais &raquo;</a></p>
+        <p><a class="btn btn-default" href="~/home/about">Saiba mais &raquo;</a></p>
     </div>
 </div>
+}
+else
+{
+<div class="jumbotron">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-6 text-center" style="margin-top:5%;">
+                <h3>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="minhaDiv"><b>SALDO: 42.00  </b></div>
+                        </div>
+                        <div class="col-md-6">
+                            <span data-tooltip="Ocultar Saldo">
+                                <a onclick="Mudarestado('minhaDiv')" class="btn btn-default btn-lg" title="Visualizar Saldo">
+                                    <i id="bt" class="glyphicon glyphicon-eye-open"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </h3>
+            </div>
+            <div class="col-md-6  text-center">
+                <canvas id="myChart" width="400" height="160"></canvas>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">01/10/2021</th>
+                <td>Agua</td>
+                <td>- 150,00</td>
+                <td class="alert-danger">Despesa</td>
+            </tr>
+            <tr>
+                <th scope="row">01/10/2021</th>
+                <td>Salario</td>
+                <td>+ 2880,35</td>
+                <td class="alert-success">Receita</td>
+            </tr>
+            <tr>
+                <th scope="row">04/10/2021</th>
+                <td>Luz</td>
+                <td>- 150,00</td>
+                <td class="alert-danger">Despesa</td>
+            </tr>
+            <tr>
+                <th scope="row">07/10/2021</th>
+                <td>Internet</td>
+                <td>- 82,00</td>
+                <td class="alert-danger">Despesa</td>
+            </tr>
+            <tr>
+                <th scope="row">19/10/2021</th>
+                <td>Mercado</td>
+                <td>- 150,00</td>
+                <td class="alert-danger">Despesa</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-right">
+        <p><a href="https://asp.net" class="btn btn-info btn-lg">Extrato</a></p>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Despesa', 'Receitas'],
+                datasets: [{
+                    label: 'Historico mensal',
+                    data: [3000, 2630,46],
+                    backgroundColor: [
+                        'rgba(217, 42, 38, 1)',
+                        'rgba(30, 118, 61, 1)',
+
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+scales: {
+    y: {
+        beginAtZero: true
+                    }
+    }
+}
+        });
+//----------------------------------
+function Mudarestado(el) {
+    var display = document.getElementById(el).style.display;
+    let del = document.getElementById('bt');
+
+    if (display == "none") {
+        document.getElementById(el).style.display = 'block';
+        del.className = "glyphicon glyphicon-eye-open";
+    }
+
+    else {
+        document.getElementById(el).style.display = 'none';
+
+        del.className = "glyphicon glyphicon-eye-close";
+    }
+
+}
+
+</script>
+
+}
