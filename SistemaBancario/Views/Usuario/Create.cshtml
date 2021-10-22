@@ -194,7 +194,7 @@
             </label>
             <br />
 
-            <div class="col-md-4">
+            <div class="col-md-4" style="display:none;">
                 @{
                     var random = new Random();
                     int randomnumber = random.Next();
@@ -203,12 +203,12 @@
                 @Html.EditorFor(model => model.Conta.NumeroDaConta, new { htmlAttributes = new { @class = "form-control", @Value = randomnumber } })
                 @Html.ValidationMessageFor(model => model.Conta.NumeroDaConta, "", new { @class = "text-danger" })
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" style="display:none;">
                 @Html.LabelFor(model => model.Conta.DataDaConta)
-                @Html.EditorFor(model => model.Conta.DataDaConta, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now } })
+                @Html.EditorFor(model => model.Conta.DataDaConta, new { htmlAttributes = new { @class = "form-control", @Value = "01/01/1990" } })
                 @Html.ValidationMessageFor(model => model.Conta.DataDaConta, "", new { @class = "text-danger" })
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" style="display:none;">
                 @Html.LabelFor(model => model.Conta.Saldo)
                 @Html.EditorFor(model => model.Conta.Saldo, new { htmlAttributes = new { @class = "form-control", @Value = 0 } })
                 @Html.ValidationMessageFor(model => model.Conta.Saldo, "", new { @class = "text-danger" })
