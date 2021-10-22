@@ -60,8 +60,7 @@ namespace SistemaBancario.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                    db.Usuarios.Add(usuarios);
+                db.Usuarios.Add(usuarios);
                 db.SaveChanges();
                 return RedirectToAction("../Home");
             }
