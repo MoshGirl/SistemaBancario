@@ -10,6 +10,8 @@ namespace SistemaBancario.Models
 {
     public class Usuarios
     {
+        internal string id;
+
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
@@ -24,10 +26,8 @@ namespace SistemaBancario.Models
         public EstadoCivil EstadoCivil { get; set; }
         public AtividadeAtual AtividadeAtual { get; set; }
 
-        //public TipoUsuarios TipoUsuarios { get; set; }
-        //public int Id_TipoUsuario { get; set; }
-
         public Telefones Telefones { get; set; }
         public Enderecos Enderecos { get; set; }
+        public Conta Conta { get; set; }
     }
 }

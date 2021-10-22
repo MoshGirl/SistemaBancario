@@ -12,11 +12,16 @@ namespace SistemaBancario.Models
         public int Id { get; set; }
         public string NumeroDaConta { get; set; }
         public DateTime DataDaConta { get; set; }
-        public decimal Saldo { get; set; }
-        public string LimiteDoUsuario { get; set; }
+        public double Saldo { get; set; }
 
-        //public Usuarios Usuarios;
-        //public int Id_Usuario { get; set; }
+        //public Conta(Usuarios id)
+        //{
+        //    this.NumeroDaConta = id.id;
+        //    this.DataDaConta = DateTime.Now;
+        //    this.Saldo = 0;
+        //    this.Usuarios = id;
+        //}
     }
+
 
 }

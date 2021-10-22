@@ -10,8 +10,52 @@
     <title></title>
 </head>
 <body>
-    <div>
-        <p>Página para depositos ainda sem operações implementadas</p>
+    <div class="jumbotron" style="margin-top:10%;">
+        <div class="row">
+            <h1 class="text-center">Deposito</h1>
+            <div class="col-md-8 text-center">
+
+                <form method="post" class="form-group">
+                    <h3 class="text-center">Valor do Depósito</h3>
+                    <hr />
+                    <div class="text-center">
+                        <input class="form-control" type="number" name="Id" style="display:none;" />
+                        <label class="sr-only-focusable">Valor</label>
+                        <input class="form-control" style="margin-left:30%;" type="text" name="Valor" placeholder="0,00" />
+                    </div>
+                    <hr />
+
+
+                    <fieldset class="text-left" style="border:2px;margin-left:30%;">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="BOLETO">
+                            <label class="form-check-label" for="inlineRadio1">Boleto</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="QRCODE">
+                            <label class="form-check-label" for="inlineRadio2">QR Code</label>
+                        </div>
+                    </fieldset>
+                    <hr />
+                    <br />
+
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Concordo com os termos e condições
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Depositar</button>
+
+                </form>
+            </div>
+            <div class="col-md-4">
+                <img class="img-responsive" src="https://w7.pngwing.com/pngs/373/961/png-transparent-mr-bean-internet-meme-humour-mr-bean-heroes-necktie-meme.png" />
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
