@@ -11,17 +11,23 @@ namespace SistemaBancario.Models
     public class Usuarios
     {
         public int Id { get; set; }
+        [Required]
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
+        [Required]
         public string CPF { get; set; }
         public string CNPJ { get; set; }
         public string NomeEmpresa { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Senha { get; set; }
 
+        [Required]
         public DateTime DataDeNascimento { get; set; }
         public Sexo Sexo { get; set; }
         public EstadoCivil EstadoCivil { get; set; }
+        [Required]
         public AtividadeAtual AtividadeAtual { get; set; }
 
         //public TipoUsuarios TipoUsuarios { get; set; }
