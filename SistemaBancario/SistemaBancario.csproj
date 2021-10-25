@@ -153,6 +153,10 @@
     <Compile Include="Migrations\202110221905454_2210Joaov2.Designer.cs">
       <DependentUpon>202110221905454_2210Joaov2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110222052186_2210v5.cs" />
+    <Compile Include="Migrations\202110222052186_2210v5.Designer.cs">
+      <DependentUpon>202110222052186_2210v5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Emprestimos.cs" />
@@ -244,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110221905454_2210Joaov2.resx">
       <DependentUpon>202110221905454_2210Joaov2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110222052186_2210v5.resx">
+      <DependentUpon>202110222052186_2210v5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
