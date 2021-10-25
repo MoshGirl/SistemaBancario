@@ -20,8 +20,7 @@
                     <hr />
                     <div class="text-center">
                         <input class="form-control" type="number" name="Id" style="display:none;" />
-                        <label class="sr-only-focusable">Valor</label>
-                        <input class="form-control" style="margin-left:30%;" type="text" name="Valor" placeholder="0,00" />
+                        <input class="form-control" style="margin-left:30%;" type="text" id="Valor" name="Valor" placeholder="0,00" />
                     </div>
                     <hr />
 
@@ -41,21 +40,34 @@
 
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input class="form-check-input" type="checkbox" id="" onclick="habilitar(this.checked)">
                             <label class="form-check-label" for="gridCheck">
                                 Concordo com os termos e condições
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Depositar</button>
+                    <button type="submit" disabled id="salvar" class="btn btn-primary">Depositar</button>
 
                 </form>
             </div>
             <div class="col-md-4">
-                <img class="img-responsive" src="https://w7.pngwing.com/pngs/373/961/png-transparent-mr-bean-internet-meme-humour-mr-bean-heroes-necktie-meme.png" />
+                <img class="img-responsive" style="max-width:80%;" src="https://th.bing.com/th/id/OIP.qr-yp22npM0TXO2U68POcwHaLS?pid=ImgDet&rs=1" />
             </div>
         </div>
 
     </div>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    function habilitar(selecionado) {
+        if (selecionado == true)
+            document.getElementById('salvar').disabled = false;
+        else
+            document.getElementById('salvar').disabled = true;
+    }
+    $("#Valor").mask('#.##0,00', { reverse: true });
+</script>
+
