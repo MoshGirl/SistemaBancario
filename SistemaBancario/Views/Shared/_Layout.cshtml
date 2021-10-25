@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="~/home" class = "navbar-brand" > Banco dos Panacas</a>
+                <a href="~/home" class="navbar-brand"> Banco dos Panacas</a>
             </div>
 
             @if (!Request.IsAuthenticated)
@@ -58,7 +58,7 @@
 
                                         <a href="/Usuario/Edit/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Configurações</a>
                                         <a href="/Login/Singout/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Sair</a>
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +82,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/inputmask")
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -180,10 +180,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\MisterBeanCadastro.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Cadastro.js" />
+    <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
+    <Content Include="Scripts\inputmask\inputmask.js" />
+    <Content Include="Scripts\inputmask\inputmask.min.js" />
+    <Content Include="Scripts\inputmask\jquery.inputmask.js" />
+    <Content Include="Scripts\inputmask\jquery.inputmask.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -221,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

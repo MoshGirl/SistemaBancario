@@ -13,6 +13,13 @@ namespace SistemaBancario
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+                        "~/Scripts/jquery.inputmask/inputmask.js",
+                        "~/Scripts/jquery.inputmask/jquery.inputmask.js",
+                        "~/Scripts/jquery.inputmask/inputmask.extensions.js",
+                        "~/Scripts/jquery.inputmask/inputmask.date.extensions.js",
+                        "~/Scripts/jquery.inputmask/inputmask.numeric.extensions.js"));
+
 
             // Use a versão em desenvolvimento do Modernizr para desenvolver e aprender. Em seguida, quando estiver
             // pronto para a produção, utilize a ferramenta de build em https://modernizr.com para escolher somente os testes que precisa.
