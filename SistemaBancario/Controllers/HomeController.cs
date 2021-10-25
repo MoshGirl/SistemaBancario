@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.AcessoDados;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,24 @@ namespace SistemaBancario.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (!Request.IsAuthenticated)
+            {
+                return View();
+
+            }
+            else
+            {
+                var db = new UsuarioContext();
+                var idLogado = Session["UsuarioLogadoId"];
+
+                var Conta = db.Conta.Find(idLogado);
+                var user = db.Usuarios.Find(idLogado);
+                
+
+                ViewBag.Saldo = user.Conta.Saldo;
+                return View();
+            }
+
         }
 
         public ActionResult About()

@@ -34,6 +34,7 @@ namespace SistemaBancario.Controllers
 
             Telefones telefone = db.Telefones.Find(id);
             Enderecos endereco = db.Enderecos.Find(id);
+            Conta conta = db.Conta.Find(id);
 
             if (usuarios == null)
             {
