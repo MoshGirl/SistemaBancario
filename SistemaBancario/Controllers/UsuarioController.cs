@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SistemaBancario.AcessoDados;
+using SistemaBancario.Mapp;
 using SistemaBancario.Models;
 
 namespace SistemaBancario.Controllers
@@ -30,17 +31,18 @@ namespace SistemaBancario.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var idLogado = Session["UsuarioLogadoId"];
-            Usuarios usuarios = db.Usuarios.Find(id);
+            Usuarios user = new Usuarios();
+            user = db.Usuarios.Find(id);
 
             Telefones telefone = db.Telefones.Find(id);
             Enderecos endereco = db.Enderecos.Find(id);
             Conta conta = db.Conta.Find(id);
 
-            if (usuarios == null)
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(usuarios);
+            return View(user);
         }
 
         // GET: Usuario/Create
@@ -57,7 +59,7 @@ namespace SistemaBancario.Controllers
 
         [AllowAnonymous]
 
-        public ActionResult Create( Usuarios usuarios)
+        public ActionResult Create(Usuarios usuarios)
         {
             if (ModelState.IsValid)
             {

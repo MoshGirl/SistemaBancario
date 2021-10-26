@@ -1,4 +1,5 @@
-﻿using SistemaBancario.Models;
+﻿using SistemaBancario.Mapp;
+using SistemaBancario.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,6 +16,7 @@ namespace SistemaBancario.AcessoDados
         }
 
         public DbSet <Usuarios> Usuarios { get; set; }
+        public DbSet<UsuariosViewModel> UsuariosVM { get; set; }
         public DbSet <Enderecos> Enderecos { get; set; }
         public DbSet <Conta> Conta { get; set; }
         public DbSet <Telefones> Telefones { get; set; }

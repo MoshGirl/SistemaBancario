@@ -1,21 +1,16 @@
-﻿using AutoMapper;
-using SistemaBancario.Mapp;
-using SistemaBancario.Models.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using AutoMapper;
+using SistemaBancario.Models;
+using SistemaBancario.Models.Enums;
 
-namespace SistemaBancario.Models
+namespace SistemaBancario.Mapp
 {
-    public class Usuarios
+    public class UsuariosViewModel
     {
-        internal string id;
-
-        public int Id { get; set; }
-        [Required]
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         [Required]
@@ -26,7 +21,6 @@ namespace SistemaBancario.Models
         public string Email { get; set; }
         [Required]
         public string Senha { get; set; }
-
         [Required]
         public DateTime DataDeNascimento { get; set; }
         public Sexo Sexo { get; set; }
@@ -37,7 +31,13 @@ namespace SistemaBancario.Models
         public Telefones Telefones { get; set; }
         public Enderecos Enderecos { get; set; }
         public Conta Conta { get; set; }
+        public object Id { get; internal set; }
 
+        static void Main(string[] args)
+        {
+            //Configure and create an instace for the mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Usuarios, UsuariosViewModel>());
+            var mapper = config.CreateMapper();
+        }
     }
-
 }
