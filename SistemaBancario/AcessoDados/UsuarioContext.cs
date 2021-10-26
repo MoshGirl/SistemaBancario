@@ -16,7 +16,6 @@ namespace SistemaBancario.AcessoDados
         }
 
         public DbSet <Usuarios> Usuarios { get; set; }
-        public DbSet<UsuariosViewModel> UsuariosVM { get; set; }
         public DbSet <Enderecos> Enderecos { get; set; }
         public DbSet <Conta> Conta { get; set; }
         public DbSet <Telefones> Telefones { get; set; }
