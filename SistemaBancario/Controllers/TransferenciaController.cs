@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SistemaBancario.AcessoDados;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SistemaBancario.Controllers
@@ -16,6 +14,12 @@ namespace SistemaBancario.Controllers
         public ActionResult Transferencias()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Pesquisa(string valor)
+        {
+            UsuarioContext db = new UsuarioContext();
+            return View(db.Usuarios.Where(a => a.CPF.Contains(valor) || a.CNPJ.Contains(valor)));
         }
     }
 }

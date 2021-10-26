@@ -18,13 +18,15 @@ namespace SistemaBancario.Models
         [Required]
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        [Required]
+        [Required(ErrorMessage = "CPF é necessário.")]
         public string CPF { get; set; }
+        [Required(ErrorMessage = "CNPJ é necessário.")]
         public string CNPJ { get; set; }
         public string NomeEmpresa { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Senha é necessária.")]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
 
         [Required]

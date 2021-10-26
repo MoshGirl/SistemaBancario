@@ -28,7 +28,7 @@ namespace SistemaBancario.Controllers
                 user = db.Usuarios.Find(idLogado);
                 
 
-                ViewBag.Saldo = user.Conta.Saldo;
+               // ViewBag.Saldo = user.Conta.Saldo;
                 return View();
             }
 
