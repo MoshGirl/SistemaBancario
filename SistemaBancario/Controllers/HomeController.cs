@@ -28,8 +28,15 @@ namespace SistemaBancario.Controllers
                 user = db.Usuarios.Find(idLogado);
                 
 
-                //ViewBag.Saldo = user.Conta.Saldo;
-                return View();
+                ViewBag.Saldo = user.Conta.Saldo;
+                ViewBag.NConta = user.Conta.NumeroDaConta;
+
+                
+
+                int id = (int)Session["UsuarioLogadoId"];
+
+                return View(db.Historico.Where(a => a.id_usuario.Equals(id)));
+
             }
 
         }

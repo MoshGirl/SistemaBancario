@@ -19,6 +19,7 @@ namespace SistemaBancario.AcessoDados
         public DbSet <Enderecos> Enderecos { get; set; }
         public DbSet <Conta> Conta { get; set; }
         public DbSet <Telefones> Telefones { get; set; }
+        public DbSet <Historico> Historico { get; set; }
 
         //public DbSet <TipoUsuarios> TipoUsuarios{ get; set; }
 

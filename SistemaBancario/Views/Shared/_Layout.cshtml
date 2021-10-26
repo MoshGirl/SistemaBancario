@@ -55,6 +55,7 @@
                                     <img class="card-img-top" src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-128.png" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title text-center"> Usuário: @Session["UsuarioLogadoNome"] </h5>
+                                        <h5 class="card-title text-center"> N°Conta: @ViewBag.NConta </h5>
 
                                         <a href="/Usuario/Details/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Configurações</a>
                                         <a href="/Login/Singout/@Session["UsuarioLogadoId"]" class="btn btn-default text-center">Sair</a>
