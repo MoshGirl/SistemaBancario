@@ -65,13 +65,13 @@
             <div class="col-md-2">
 
                 @Html.DropDownListFor(model => model.EstadoCivil,
-              new SelectList(Enum.GetValues(typeof(EstadoCivil))),
-              "Estado Civil")
+   new SelectList(Enum.GetValues(typeof(EstadoCivil))),
+   "Estado Civil")
             </div>
             <div class="col-md-2">
                 @Html.DropDownListFor(model => model.AtividadeAtual,
-             new SelectList(Enum.GetValues(typeof(AtividadeAtual))),
-             "Atividade Atual")
+  new SelectList(Enum.GetValues(typeof(AtividadeAtual))),
+  "Atividade Atual")
 
             </div>
             <div class="col-md-1" id="DDD">
@@ -193,6 +193,28 @@
             </div>
         </div>
         <hr />
+        <div class="row " style="display:none;">
+            @{ 
+                var data = DateTime.Now.ToString("yyyy-MM-dd");
+                Random numAleatorio = new Random();
+                int NConta = numAleatorio.Next();
+            }
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Conta.NumeroDaConta)
+                @Html.EditorFor(model => model.Conta.NumeroDaConta, new { htmlAttributes = new { @class = "form-control", @Value=NConta} })
+                @Html.ValidationMessageFor(model => model.Conta.NumeroDaConta, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Conta.DataDaConta)
+                @Html.EditorFor(model => model.Conta.DataDaConta, new { htmlAttributes = new { @class = "form-control", @Value=data } })
+                @Html.ValidationMessageFor(model => model.Conta.DataDaConta, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Conta.Saldo)
+                @Html.EditorFor(model => model.Conta.Saldo, new { htmlAttributes = new { @class = "form-control", @Value=0 } })
+                @Html.ValidationMessageFor(model => model.Conta.Saldo, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" onclick="habilitar(this.checked)">
