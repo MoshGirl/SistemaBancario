@@ -37,11 +37,24 @@ namespace SistemaBancario.Controllers
 
                 // var usuarios = db.Usuarios.Where(a => a.id == "4").FirstOrDefault();
 
-               
-
                 user.Conta.Saldo += Valor;
 
+
+                Historico historico = new Historico();
+                historico.Data = DateTime.Now;
+                historico.Descricao = "Deposito";
+                historico.Tipo = "R";
+                historico.Valor = (decimal)Valor;
+                historico.id_usuario = (int)Session["UsuarioLogadoId"];
+
+                db.Historico.Add(historico);
+
                 db.SaveChanges();
+
+
+                //-------------------------
+
+
                 return RedirectToAction(@"../Home");
 
 

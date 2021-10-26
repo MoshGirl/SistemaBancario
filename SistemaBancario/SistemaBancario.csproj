@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepositosController.cs" />
     <Compile Include="Controllers\EmprestimosController.cs" />
+    <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagamentosController.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Models\Enums\EstadoCivil.cs" />
     <Compile Include="Models\Enums\NomeTipo.cs" />
     <Compile Include="Models\Enums\Sexo.cs" />
+    <Compile Include="Models\Historico.cs" />
     <Compile Include="Models\Telefones.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
     <Compile Include="Models\Transferencias.cs" />
@@ -234,6 +236,7 @@
     <Content Include="Views\Depositos\Depositos.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Emprestimos\Index.cshtml" />
+    <Content Include="Views\Historico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

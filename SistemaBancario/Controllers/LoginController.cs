@@ -34,6 +34,7 @@ namespace SistemaBancario.Controllers
             if (usuario != null)
             {
                 Usuarios user = new Usuarios();
+                Conta conta = new Conta();
                 FormsAuthentication.SetAuthCookie(cpf, true);
 
                 Session["UsuarioLogadoNome"] = usuario.Nome;

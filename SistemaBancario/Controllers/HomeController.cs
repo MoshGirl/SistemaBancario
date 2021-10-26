@@ -29,7 +29,13 @@ namespace SistemaBancario.Controllers
                 
 
                 ViewBag.Saldo = user.Conta.Saldo;
-                return View();
+                ViewBag.NConta = user.Conta.NumeroDaConta;
+
+                
+
+                int id = (int)Session["UsuarioLogadoId"];
+
+                return View(db.Historico.Where(a => a.id_usuario.Equals(id)));
             }
 
         }
