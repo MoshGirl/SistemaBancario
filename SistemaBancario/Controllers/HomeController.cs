@@ -1,4 +1,6 @@
 ﻿using SistemaBancario.AcessoDados;
+using SistemaBancario.Mapp;
+using SistemaBancario.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,8 @@ namespace SistemaBancario.Controllers
                 var idLogado = Session["UsuarioLogadoId"];
 
                 var Conta = db.Conta.Find(idLogado);
-                var user = db.Usuarios.Find(idLogado);
+                Usuarios user = new Usuarios();
+                user = db.Usuarios.Find(idLogado);
                 
 
                 ViewBag.Saldo = user.Conta.Saldo;
