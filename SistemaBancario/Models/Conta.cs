@@ -14,13 +14,6 @@ namespace SistemaBancario.Models
         public DateTime DataDaConta { get; set; }
         public double Saldo { get; set; }
 
-        //public Conta(Usuarios id)
-        //{
-        //    this.NumeroDaConta = id.id;
-        //    this.DataDaConta = DateTime.Now;
-        //    this.Saldo = 0;
-        //    this.Usuarios = id;
-        //}
     }
 
 

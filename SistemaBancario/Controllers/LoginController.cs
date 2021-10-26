@@ -28,8 +28,8 @@ namespace SistemaBancario.Controllers
 
             var db = new UsuarioContext();
 
-           
-            var usuario = db.Usuarios.Where(a => a.CPF.Equals(cpf) && a.Senha.Equals(senha)).FirstOrDefault();
+
+            Usuarios usuario = db.Usuarios.Where(a => a.CPF.Equals(cpf) && a.Senha.Equals(senha)).FirstOrDefault();
 
             if (usuario != null)
             {
