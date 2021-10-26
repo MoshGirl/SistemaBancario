@@ -10,8 +10,8 @@ namespace SistemaBancario.Models
         public int Id { get; set; }
         public double ValorDeTransferencia { get; set; }
         public string NomeDoBanco { get; set; }
-        public int Agencia { get; set; }
-        public string Conta { get; set; }
+        public int AgenciaDestino { get; set; }
+        public string ContaDestino { get; set; }
         public string NomeDoFavorecido { get; set; }
         public string CpfCnpj { get; set; }
         public DateTime DiaDaTransferencia { get; set; }

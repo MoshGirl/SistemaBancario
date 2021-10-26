@@ -36,6 +36,7 @@ namespace SistemaBancario.Controllers
                 int id = (int)Session["UsuarioLogadoId"];
 
                 return View(db.Historico.Where(a => a.id_usuario.Equals(id)));
+
             }
 
         }
