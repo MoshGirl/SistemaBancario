@@ -1,4 +1,5 @@
 ﻿using SistemaBancario.AcessoDados;
+using SistemaBancario.Mapp;
 using SistemaBancario.Models;
 using System;
 using System.Collections.Generic;
@@ -29,10 +30,9 @@ namespace SistemaBancario.Controllers
             {
                 //Somar valor depositado com o saldo
                 var idLogado = Session["UsuarioLogadoId"];
-                //var user = db.Usuarios.Where(a => a.Id == id).FirstOrDefault();
-                var Conta = new Conta();
+                Conta conta = new Conta();
 
-                var ContaL = db.Conta.Find(idLogado);
+                conta = db.Conta.Find(idLogado);
                 var user = db.Usuarios.Find(idLogado);
 
                 // var usuarios = db.Usuarios.Where(a => a.id == "4").FirstOrDefault();
