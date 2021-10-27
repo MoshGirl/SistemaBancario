@@ -28,8 +28,33 @@ namespace SistemaBancario.Controllers
                 user = db.Usuarios.Find(idLogado);
                 
 
-                //ViewBag.Saldo = user.Conta.Saldo;
-                return View();
+                ViewBag.Saldo = user.Conta.Saldo;
+                ViewBag.NConta = user.Conta.NumeroDaConta;
+
+                
+
+                int id = (int)Session["UsuarioLogadoId"];
+                decimal Receita=0;
+                decimal Despesa = 0;
+
+                var graficoReceita = db.Historico.Where(a => a.id_usuario.Equals(id) && a.Tipo.Equals("R"));
+                var graficoDespesa = db.Historico.Where(a => a.id_usuario.Equals(id) && a.Tipo.Equals("D"));
+
+                foreach (var GR in graficoReceita)
+                {
+                    Receita += GR.Valor;
+                }
+
+                foreach (var GD in graficoDespesa)
+                {
+                    Despesa += GD.Valor;
+                }
+                ViewBag.Receita = Receita;
+                ViewBag.Despesa = Despesa;
+
+                return View(db.Historico.Where(a => a.id_usuario.Equals(id)).Max(5));
+
+
             }
 
         }

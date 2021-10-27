@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SistemaBancario.Models.Historico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Extrato</h2>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+    
+            @if (item.Tipo == "R")
+            {
+                <td class="alert alert-success">Receita</td>
+            }
+            else
+            {
+                <td class="alert alert-danger">Despesa</td>
+            }
+    </tr>
+}
+
+</table>

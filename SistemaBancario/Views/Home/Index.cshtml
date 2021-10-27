@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model IEnumerable<SistemaBancario.Models.Historico>
 
 @if (!Request.IsAuthenticated)
 {
@@ -59,50 +60,51 @@ else
             </div>
         </div>
         <hr />
-        <table class="table table-sm">
-            <thead>
+        <!---->
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Valor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>Data</th>
-                    <th>Descrição</th>
-                    <th>Valor</th>
-                    <th>Tipo</th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valor)
+                    </td>
+
+                    @if (item.Tipo == "R")
+                    {
+                        <td class="alert alert-success">Receita</td>
+                    }
+                    else
+                    {
+                        <td class="alert alert-danger">Despesa</td>
+                    }
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">01/10/2021</th>
-                    <td>Agua</td>
-                    <td>- 150,00</td>
-                    <td class="alert-danger">Despesa</td>
-                </tr>
-                <tr>
-                    <th scope="row">01/10/2021</th>
-                    <td>Salario</td>
-                    <td>+ 2880,35</td>
-                    <td class="alert-success">Receita</td>
-                </tr>
-                <tr>
-                    <th scope="row">04/10/2021</th>
-                    <td>Luz</td>
-                    <td>- 150,00</td>
-                    <td class="alert-danger">Despesa</td>
-                </tr>
-                <tr>
-                    <th scope="row">07/10/2021</th>
-                    <td>Internet</td>
-                    <td>- 82,00</td>
-                    <td class="alert-danger">Despesa</td>
-                </tr>
-                <tr>
-                    <th scope="row">19/10/2021</th>
-                    <td>Mercado</td>
-                    <td>- 150,00</td>
-                    <td class="alert-danger">Despesa</td>
-                </tr>
-            </tbody>
+            }
+
         </table>
+        <!---->
         <div class="text-right">
-            <p><a href="https://asp.net" class="btn btn-info btn-lg">Extrato</a></p>
+            <p><a href="/Historico" class="btn btn-info btn-lg">Extrato</a></p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -114,7 +116,7 @@ else
                 labels: ['Despesa', 'Receitas'],
                 datasets: [{
                     label: 'Historico mensal',
-                    data: [3000, 2630, 46],
+                    data: [@ViewBag.Despesa, @ViewBag.Receita],
                     backgroundColor: [
                         'rgba(217, 42, 38, 1)',
                         'rgba(30, 118, 61, 1)',
