@@ -20,6 +20,7 @@ namespace SistemaBancario.Controllers
             }
             else
             {
+
                 var db = new UsuarioContext();
                 var idLogado = Session["UsuarioLogadoId"];
 
