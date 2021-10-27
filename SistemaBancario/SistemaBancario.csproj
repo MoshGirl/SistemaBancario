@@ -167,6 +167,10 @@
     <Compile Include="Migrations\202110222052186_2210v5.Designer.cs">
       <DependentUpon>202110222052186_2210v5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110271335085_tentandoarrumaralgo.cs" />
+    <Compile Include="Migrations\202110271335085_tentandoarrumaralgo.Designer.cs">
+      <DependentUpon>202110271335085_tentandoarrumaralgo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Emprestimos.cs" />
@@ -269,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110222052186_2210v5.resx">
       <DependentUpon>202110222052186_2210v5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110271335085_tentandoarrumaralgo.resx">
+      <DependentUpon>202110271335085_tentandoarrumaralgo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
