@@ -20,6 +20,7 @@ namespace SistemaBancario.Controllers
             }
             else
             {
+
                 var db = new UsuarioContext();
                 var idLogado = Session["UsuarioLogadoId"];
 
@@ -52,7 +53,7 @@ namespace SistemaBancario.Controllers
                 ViewBag.Receita = Receita;
                 ViewBag.Despesa = Despesa;
 
-                return View(db.Historico.Where(a => a.id_usuario.Equals(id)).Max(5));
+                return View(db.Historico.Where(a => a.id_usuario.Equals(id)));
 
 
             }

@@ -38,7 +38,7 @@ namespace SistemaBancario.Controllers
             Conta contaParaTransferir = new Conta();
             contaTitular = db.Conta.Find(idLogado);
 
-            if (contaTitular.Saldo > valor) {
+            if (contaTitular.Saldo > valor && !contaTitular.NumeroDaConta.Equals(numeroConta)) {
                 
                 contaParaTransferir = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta))
                     .FirstOrDefault();

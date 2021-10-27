@@ -12,7 +12,7 @@ namespace SistemaBancario.Models
 {
     public class Usuarios
     {
-        internal string id;
+       
 
         public int Id { get; set; }
         [Required]
