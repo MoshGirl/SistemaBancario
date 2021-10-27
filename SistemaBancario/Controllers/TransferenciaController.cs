@@ -30,7 +30,7 @@ namespace SistemaBancario.Controllers
         }
 
         [HttpPost]
-        public ActionResult Transferencias(double valor, string numeroConta)
+        public ActionResult Transferencias(Double valor, string numeroConta)
         {
             var db = new UsuarioContext();
 
