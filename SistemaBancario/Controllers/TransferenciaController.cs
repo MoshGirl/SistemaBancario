@@ -14,6 +14,15 @@ namespace SistemaBancario.Controllers
         }
         public ActionResult Transferencias()
         {
+            var db = new UsuarioContext();
+            var idLogado = Session["UsuarioLogadoId"];
+
+            var Conta = db.Conta.Find(idLogado);
+            Usuarios user = new Usuarios();
+            user = db.Usuarios.Find(idLogado);
+
+
+            ViewBag.Saldo = user.Conta.Saldo;
             return View();
         }
 
