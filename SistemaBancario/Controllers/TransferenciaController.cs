@@ -14,28 +14,44 @@ namespace SistemaBancario.Controllers
         }
         public ActionResult Transferencias()
         {
+            UsuarioContext db = new UsuarioContext();
+
+            var id = (int)Session["UsuarioLogadoId"];
+            var saldo = db.Usuarios.Find(id);
             return View();
         }
 
-        public ActionResult RealizarTransferencias(double valor, string numeroConta)
+        [HttpPost]
+        public ActionResult Transferencias(double valor, string numeroConta)
         {
             var db = new UsuarioContext();
 
             var idLogado = Session["UsuarioLogadoId"];
             Conta contaTitular = new Conta();
             Conta contaParaTransferir = new Conta();
-
             contaTitular = db.Conta.Find(idLogado);
-            contaParaTransferir = db.Conta.Find(numeroConta);
 
-            var user = db.Usuarios.Find(idLogado);
+            if (contaTitular.Saldo > valor) {
+                
+                contaParaTransferir = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta))
+                    .FirstOrDefault();
 
-            contaParaTransferir.Saldo = contaParaTransferir.Saldo + valor;
-            contaTitular.Saldo = contaTitular.Saldo - valor;
+                var user = db.Usuarios.Find(idLogado);
 
-            return View();
+                contaParaTransferir.Saldo = contaParaTransferir.Saldo + valor;
+                contaTitular.Saldo = contaTitular.Saldo - valor;
+                db.SaveChanges();
+                return View();
+
+            }
+
+            else
+            {
+                // fazer mensagem de erro
+                return View();
+            }
         }
-
+        [HttpPost]
         public ActionResult RealizarTransferenciasCPF(double valor, string cpf)
         {
             var db = new UsuarioContext();
