@@ -20,7 +20,7 @@
             <div class="col-xs-6 col-md-4" style="border:inset">
 
                 <h4>@Html.LabelFor(model => model.Contas.Saldo, "Saldo") <i id="bt" class="glyphicon glyphicon-eye-open"></i></h4>
-                <h3>R$ @ViewBag.Contas.Saldo </h3>
+                <h3>R$ @ViewBag.Saldo </h3>
                 @Html.ValidationMessageFor(model => model.Contas.Saldo, "", new { @class = "text-danger" })
             </div>
         </div>
