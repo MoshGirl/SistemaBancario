@@ -1,5 +1,6 @@
 ﻿using SistemaBancario.AcessoDados;
 using SistemaBancario.Models;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -45,8 +46,30 @@ namespace SistemaBancario.Controllers
 
                 var user = db.Usuarios.Find(idLogado);
 
+
                 contaParaTransferir.Saldo = contaParaTransferir.Saldo + valor;
                 contaTitular.Saldo = contaTitular.Saldo - valor;
+
+                Historico historico = new Historico();
+                historico.Data = DateTime.Now;
+                historico.Descricao = "Transferencia";
+                historico.Tipo = "D";
+                historico.Valor = (decimal)valor;
+                historico.id_usuario = (int)Session["UsuarioLogadoId"];
+
+                //----------------------------------------------------
+
+                Historico historicoUserRecebe = new Historico();
+                historicoUserRecebe.Data = DateTime.Now;
+                historicoUserRecebe.Descricao = "Deposito de : "+user.Nome;
+                historicoUserRecebe.Tipo = "R";
+                historicoUserRecebe.Valor = (decimal)valor;
+                Conta conta = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta)).FirstOrDefault();
+                historicoUserRecebe.id_usuario = conta.Id;
+
+                db.Historico.Add(historico);
+                db.Historico.Add(historicoUserRecebe);
+
                 db.SaveChanges();
                 return View();
 

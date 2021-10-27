@@ -53,7 +53,7 @@ namespace SistemaBancario.Controllers
                 ViewBag.Receita = Receita;
                 ViewBag.Despesa = Despesa;
 
-                return View(db.Historico.Where(a => a.id_usuario.Equals(id)));
+                return View(db.Historico.Where(a => a.id_usuario.Equals(id)).Take(5));
 
 
             }
