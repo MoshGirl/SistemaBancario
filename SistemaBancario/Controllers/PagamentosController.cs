@@ -17,5 +17,12 @@ namespace SistemaBancario.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Pagamentos(string código, double valor, string dataVencimento)
+        {
+            
+            return View();
+        }
     }
 }

@@ -29,7 +29,7 @@
             <br />
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Informe um valor:</label>
+                    <label for="valorTransferir" class="col-sm-2 control-label">Informe um valor:</label>
                     <div class="col-sm-10">
                         @Html.EditorFor(model => model.ValorDeTransferencia, new { htmlAttributes = new { @class = "form-control", placeholder = "R$: 0000,00", @Name = "valor", @id="valorTransferir", @Type="text" } })
                         @Html.ValidationMessageFor(model => model.ValorDeTransferencia, "", new { @class = "text-danger" })
