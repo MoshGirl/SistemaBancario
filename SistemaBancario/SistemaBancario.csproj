@@ -180,6 +180,7 @@
     <Compile Include="Models\Enums\NomeTipo.cs" />
     <Compile Include="Models\Enums\Sexo.cs" />
     <Compile Include="Models\Historico.cs" />
+    <Compile Include="Models\Pagamentos.cs" />
     <Compile Include="Models\Telefones.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
     <Compile Include="Models\Transferencias.cs" />
