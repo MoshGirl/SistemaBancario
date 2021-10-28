@@ -71,13 +71,14 @@ namespace SistemaBancario.Controllers
                 db.Historico.Add(historicoUserRecebe);
 
                 db.SaveChanges();
+                ViewBag.mensagemSucesso = "sucesso!";
                 return View();
 
             }
 
             else
             {
-                // fazer mensagem de erro
+                ViewBag.mensagemErro = "Erro ao encontrar destinatario ou por falta de saldo! ";
                 return View();
             }
         }
