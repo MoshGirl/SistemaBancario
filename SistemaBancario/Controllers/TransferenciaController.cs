@@ -52,7 +52,7 @@ namespace SistemaBancario.Controllers
 
                 Historico historico = new Historico();
                 historico.Data = DateTime.Now;
-                historico.Descricao = "Transferencia";
+                historico.Descricao = "Transferencia para conta: "+numeroConta;
                 historico.Tipo = "D";
                 historico.Valor = (decimal)valor;
                 historico.id_usuario = (int)Session["UsuarioLogadoId"];
