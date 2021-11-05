@@ -171,6 +171,10 @@
     <Compile Include="Migrations\202110271335085_tentandoarrumaralgo.Designer.cs">
       <DependentUpon>202110271335085_tentandoarrumaralgo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111051247424_0511Anna.cs" />
+    <Compile Include="Migrations\202111051247424_0511Anna.Designer.cs">
+      <DependentUpon>202111051247424_0511Anna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Emprestimos.cs" />
@@ -180,6 +184,7 @@
     <Compile Include="Models\Enums\NomeTipo.cs" />
     <Compile Include="Models\Enums\Sexo.cs" />
     <Compile Include="Models\Historico.cs" />
+    <Compile Include="Models\MinimoDe18Anos.cs" />
     <Compile Include="Models\Pagamentos.cs" />
     <Compile Include="Models\Telefones.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
@@ -277,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110271335085_tentandoarrumaralgo.resx">
       <DependentUpon>202110271335085_tentandoarrumaralgo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111051247424_0511Anna.resx">
+      <DependentUpon>202111051247424_0511Anna.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

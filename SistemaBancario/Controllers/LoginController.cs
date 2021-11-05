@@ -1,5 +1,6 @@
 ﻿using SistemaBancario.AcessoDados;
 using SistemaBancario.Models;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,17 @@ namespace SistemaBancario.Controllers
 {
     public class LoginController : Controller
     {
+        private UsuarioContext _context;
+
+        public LoginController()
+        {
+            _context = new UsuarioContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Login
         public ActionResult Index()
         {
@@ -26,10 +38,7 @@ namespace SistemaBancario.Controllers
         public ActionResult Login(string cpf, string senha)
         {
 
-            var db = new UsuarioContext();
-
-
-            Usuarios usuario = db.Usuarios.Where(a => a.CPF.Equals(cpf) && a.Senha.Equals(senha)).FirstOrDefault();
+            Usuarios usuario = _context.Usuarios.Where(a => a.CPF.Equals(cpf) && a.Senha.Equals(senha)).FirstOrDefault();
 
             if (usuario != null)
             {
