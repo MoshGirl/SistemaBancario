@@ -24,18 +24,19 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+
             @if (item.Tipo == "R")
             {
                 <td class="alert alert-success">Receita</td>
@@ -44,7 +45,8 @@
             {
                 <td class="alert alert-danger">Despesa</td>
             }
-    </tr>
-}
+        </tr>
+    }
 
 </table>
+
