@@ -22,7 +22,7 @@ namespace SistemaBancario.Controllers
         }
 
         [HttpPost]
-        public ActionResult Depositos(decimal Valor)
+        public ActionResult Depositos(double Valor)
         {
             var db = new UsuarioContext();
 
@@ -44,7 +44,7 @@ namespace SistemaBancario.Controllers
                 historico.Data = DateTime.Now;
                 historico.Descricao = "Deposito";
                 historico.Tipo = "R";
-                historico.Valor = (decimal)Valor;
+                historico.Valor = Valor;
                 historico.id_usuario = (int)Session["UsuarioLogadoId"];
 
                 db.Historico.Add(historico);
