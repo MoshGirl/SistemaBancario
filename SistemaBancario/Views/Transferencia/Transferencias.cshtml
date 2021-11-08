@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">CPF/CNPJ:</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(model => model.ContaDestino, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o CPF ou CNPJ" } })
+                        @Html.EditorFor(model => model.ContaDestino, new { htmlAttributes = new { @class = "form-control ContaDestino", placeholder = "Digite o CPF ou CNPJ", @name="ContaDestino" } })
                         @Html.ValidationMessageFor(model => model.ContaDestino, "", new { @class = "text-danger" })
                     </div>
 
@@ -87,4 +87,5 @@
     
 <script type="text/javascript">
     $("#valorTransferir").mask('##0,00', { reverse: true });
+    $(".ContaDestino").mask("000.000.000-00");
 </script>
