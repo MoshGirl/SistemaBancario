@@ -48,9 +48,15 @@ namespace SistemaBancario.Controllers
 
                 Session["UsuarioLogadoNome"] = usuario.Nome;
                 Session["UsuarioLogadoId"] = usuario.Id;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.mensagemErro = "Usuario ou senha invalidos!!!";
+                return View();
             }
 
-            return RedirectToAction("Index", "Home"); 
+            
         }
 
         public ActionResult SingOut()

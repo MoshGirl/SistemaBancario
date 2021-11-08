@@ -11,6 +11,13 @@
 </head>
 <body>
     <div class="text-center">
+        @if (ViewBag.mensagemErro != null)
+        {
+            <script type="text/javascript">
+                alert('@ViewBag.mensagemErro');
+
+            </script>
+        }
         <h2 class="text-center">Login</h2>
         <form method="post" style="margin-left: 38%;">
             <div class="form-group">
