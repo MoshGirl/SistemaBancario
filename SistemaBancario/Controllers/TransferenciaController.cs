@@ -33,7 +33,7 @@ namespace SistemaBancario.Controllers
         }
 
         [HttpPost]
-        public ActionResult Transferencias(decimal valor, string numeroConta)
+        public ActionResult Transferencias(double valor, string numeroConta)
         {
             var db = new UsuarioContext();
 
@@ -61,7 +61,7 @@ namespace SistemaBancario.Controllers
                 historico.Data = DateTime.Now;
                 historico.Descricao = "Transferencia para conta: "+numeroConta;
                 historico.Tipo = "D";
-                historico.Valor = (decimal)valor;
+                historico.Valor = valor;
                 historico.id_usuario = (int)Session["UsuarioLogadoId"];
 
                 //----------------------------------------------------
@@ -70,7 +70,7 @@ namespace SistemaBancario.Controllers
                 historicoUserRecebe.Data = DateTime.Now;
                 historicoUserRecebe.Descricao = "Deposito de : "+user.Nome;
                 historicoUserRecebe.Tipo = "R";
-                historicoUserRecebe.Valor = (decimal)valor;
+                historicoUserRecebe.Valor = valor;
                 Conta conta = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta)).FirstOrDefault();
                 historicoUserRecebe.id_usuario = conta.Id;
 
@@ -99,7 +99,7 @@ namespace SistemaBancario.Controllers
             }
         }
         [HttpPost]
-        public ActionResult RealizarTransferenciasCPF(decimal valor, string cpf)
+        public ActionResult RealizarTransferenciasCPF(double valor, string cpf)
         {
             var db = new UsuarioContext();
 

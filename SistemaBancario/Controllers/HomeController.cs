@@ -35,8 +35,8 @@ namespace SistemaBancario.Controllers
                 
 
                 int id = (int)Session["UsuarioLogadoId"];
-                decimal Receita=0;
-                decimal Despesa = 0;
+                double Receita=0;
+                double Despesa = 0;
 
                 var graficoReceita = db.Historico.Where(a => a.id_usuario.Equals(id) && a.Tipo.Equals("R"));
                 var graficoDespesa = db.Historico.Where(a => a.id_usuario.Equals(id) && a.Tipo.Equals("D"));

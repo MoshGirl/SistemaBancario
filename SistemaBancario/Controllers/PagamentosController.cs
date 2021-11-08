@@ -21,7 +21,7 @@ namespace SistemaBancario.Controllers
         }
 
         [HttpPost]
-        public ActionResult Pagamentos(string codigo, decimal valor, string dataVencimento)
+        public ActionResult Pagamentos(string codigo, double valor, string dataVencimento)
         {
 
             var db = new UsuarioContext();
@@ -40,7 +40,7 @@ namespace SistemaBancario.Controllers
                 historico.Data = DateTime.Now;
                 historico.Descricao = "Pagamento de conta: "+codigo;
                 historico.Tipo = "D";
-                historico.Valor = (decimal)valor;
+                historico.Valor = valor;
                 historico.id_usuario = (int)Session["UsuarioLogadoId"];
                 db.Historico.Add(historico);
 

@@ -20,7 +20,7 @@ namespace SistemaBancario.Models
             var usuarioLogado = db.Usuarios.Find(idLogado);
 
             var saldo = conta.Saldo;
-            return saldo;
+            return (decimal)saldo;
         }
     }
 }

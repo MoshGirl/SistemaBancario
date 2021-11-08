@@ -12,7 +12,7 @@ namespace SistemaBancario.Models
         public DateTime Data { get; set; }
         public string Descricao { get; set; }
         public string Tipo { get; set; }
-        public decimal Valor { get; set; }
+        public double Valor { get; set; }
         public int id_usuario { get; set; }
     }
 }
