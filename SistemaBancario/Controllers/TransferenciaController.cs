@@ -78,7 +78,7 @@ namespace SistemaBancario.Controllers
                 db.Historico.Add(historicoUserRecebe);
 
                 db.SaveChanges();
-                ViewBag.mensagemSucesso = "sucesso!";
+                ViewBag.mensagemSucesso = "Transferencia realizada!";
                 return View();
                 }
                 else
