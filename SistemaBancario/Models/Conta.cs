@@ -12,7 +12,7 @@ namespace SistemaBancario.Models
         public int Id { get; set; }
         public string NumeroDaConta { get; set; }
         public DateTime DataDaConta { get; set; }
-        public double Saldo { get; set; }
+        public decimal Saldo { get; set; }
 
     }
 

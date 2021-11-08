@@ -21,7 +21,7 @@ namespace SistemaBancario.Controllers
         }
 
         [HttpPost]
-        public ActionResult Pagamentos(string codigo, double valor, string dataVencimento)
+        public ActionResult Pagamentos(string codigo, decimal valor, string dataVencimento)
         {
 
             var db = new UsuarioContext();

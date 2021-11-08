@@ -190,6 +190,7 @@
     <Compile Include="Models\TipoUsuarios.cs" />
     <Compile Include="Models\Transferencias.cs" />
     <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Services\ValidarSaldoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
