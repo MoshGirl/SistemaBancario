@@ -22,7 +22,7 @@ namespace SistemaBancario.Controllers
         }
 
         [HttpPost]
-        public ActionResult Depositos(Double Valor)
+        public ActionResult Depositos(decimal Valor)
         {
             var db = new UsuarioContext();
 

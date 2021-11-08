@@ -8,29 +8,32 @@ namespace SistemaBancario.Controllers
 {
     public class TransferenciaController : Controller
     {
+        private ValidarSaldoService _validarSaldoService;
         // GET: Transferencia
+
+        public TransferenciaController()
+        {
+            _validarSaldoService = new ValidarSaldoService();
+        }
+
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult Transferencias()
         {
-
-            var db = new UsuarioContext();
             var idLogado = Session["UsuarioLogadoId"];
+            int id = (int)idLogado;
 
-            var Conta = db.Conta.Find(idLogado);
-            Usuarios user = new Usuarios();
-            user = db.Usuarios.Find(idLogado);
-
-
-            ViewBag.Saldo = user.Conta.Saldo;
+            var saldoUsuario = _validarSaldoService.ConsultaSaldo(id);
+            ViewBag.Saldo = saldoUsuario;
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult Transferencias(Double valor, string numeroConta)
+        public ActionResult Transferencias(decimal valor, string numeroConta)
         {
             var db = new UsuarioContext();
 
@@ -44,6 +47,10 @@ namespace SistemaBancario.Controllers
                 contaParaTransferir = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta))
                     .FirstOrDefault();
 
+                if(contaParaTransferir != null)
+                {
+
+                
                 var user = db.Usuarios.Find(idLogado);
 
 
@@ -73,6 +80,15 @@ namespace SistemaBancario.Controllers
                 db.SaveChanges();
                 ViewBag.mensagemSucesso = "sucesso!";
                 return View();
+                }
+                else
+                {
+                    int id = (int)idLogado;
+                    var saldoUsuario = _validarSaldoService.ConsultaSaldo(id);
+                    ViewBag.Saldo = saldoUsuario;
+                    ViewBag.mensagemSucesso = "Usuario Invalido";
+                    return View();
+                }
 
             }
 
@@ -83,7 +99,7 @@ namespace SistemaBancario.Controllers
             }
         }
         [HttpPost]
-        public ActionResult RealizarTransferenciasCPF(double valor, string cpf)
+        public ActionResult RealizarTransferenciasCPF(decimal valor, string cpf)
         {
             var db = new UsuarioContext();
 
