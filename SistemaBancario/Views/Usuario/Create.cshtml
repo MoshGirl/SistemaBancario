@@ -10,7 +10,7 @@
 <script type="text/javascript" src="inputmask/inputmask.js"></script>
 
 <form action="/Usuario/Create?class=Cadastro" onsubmit="return comparaSenha(this)" method="post" novalidate="novalidate" id="cadastrando">
-   
+
     @Html.AntiForgeryToken()
 
     <div class="container-fluid">
@@ -97,9 +97,8 @@
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-5 ">
-                @Html.LabelFor(model => model.Email, "Confirmar E-Mail")
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                <label>Confirmar Email:</label>
+                <input type="text" class="form-control" id="confirmarEmail" name="confirmarEmail" required />
             </div>
         </div>
 
@@ -231,50 +230,48 @@
             <hr />
         </div>
     </div>
-    </form>
+</form>
 
-    <div>
-        @Html.ActionLink("Voltar a Página de Login", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Voltar a Página de Login", "Index")
+</div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/inputmask")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+}
+
+
+<script type="text/javascript">
+    function habilitar(selecionado) {
+        if (selecionado == true)
+            document.getElementById('salvar').disabled = false;
+        else
+            document.getElementById('salvar').disabled = true;
     }
 
+</script>
 
-    <script type="text/javascript">
-        function habilitar(selecionado) {
-            if (selecionado == true)
-                document.getElementById('salvar').disabled = false;
-            else
-                document.getElementById('salvar').disabled = true;
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+
+<script type="text/javascript" language="JavaScript">
+    function comparaSenha(theForm) {
+        if (theForm.Senha.value != theForm.confirmarSenha.value) {
+            alert('As senhas devem ser iguais');
+            return false;
+        }
+        if (theForm.Email.value != theForm.confirmarEmail.value) {
+            alert('Os emails devem ser iguais');
+            return false;
+        } else {
+            return true;
         }
 
-    </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-
-    <script type="text/javascript">
-        $("#ddd").mask("(00)");
-        $("#telefone").mask("00000-0000");
-        $("#cpf").mask("000.000.000-00");
-        $("#data").mask("00/00/0000");
-        $("#cnpj").mask("00.000.000/0000-00");
-    </script>
-
-    <script type="text/javascript" language="JavaScript">
-<!--
-        function comparaSenha(theForm) {
-            if (theForm.Senha.value != theForm.confirmarSenha.value) {
-                alert('A confirmação de senha deve ser igual a senha');
-                return false;
-            } else {
-                return true;
-            }
-        }
-    </script>
+    }
+</script>
 <script type="text/javascript">
     $("#ddd").mask("(00)");
     $("#telefone").mask("00000-0000");
