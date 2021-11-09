@@ -9,8 +9,8 @@
 <script src="@Url.Content("~/SistemaBancario/Scripts/Cadastro.js")" type="text/javascript"></script>
 <script type="text/javascript" src="inputmask/inputmask.js"></script>
 
-@using (Html.BeginForm())
-{
+<form action="/Usuario/Create?class=Cadastro" onsubmit="return comparaSenha(this)" method="post" novalidate="novalidate" id="cadastrando">
+   
     @Html.AntiForgeryToken()
 
     <div class="container-fluid">
@@ -106,13 +106,13 @@
         <div class="row">
             <div class="col-md-5">
                 @Html.LabelFor(model => model.Senha, "Senha:")
-                @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", @type = "password", @name = "Senha1" } })
                 @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-5 ">
-                @Html.LabelFor(model => model.Senha, "Confirmar Senha")
-                @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                <label>Confirmar Senha:</label>
+                <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" required />
+
             </div>
         </div>
         <hr />
@@ -194,24 +194,24 @@
         </div>
         <hr />
         <div class="row " style="display:none;">
-            @{ 
+            @{
                 var data = DateTime.Now.ToString("yyyy-MM-dd");
                 Random numAleatorio = new Random();
                 int NConta = numAleatorio.Next();
             }
             <div class="col-md-4">
                 @Html.LabelFor(model => model.Conta.NumeroDaConta)
-                @Html.EditorFor(model => model.Conta.NumeroDaConta, new { htmlAttributes = new { @class = "form-control", @Value=NConta} })
+                @Html.EditorFor(model => model.Conta.NumeroDaConta, new { htmlAttributes = new { @class = "form-control", @Value = NConta } })
                 @Html.ValidationMessageFor(model => model.Conta.NumeroDaConta, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-4">
                 @Html.LabelFor(model => model.Conta.DataDaConta)
-                @Html.EditorFor(model => model.Conta.DataDaConta, new { htmlAttributes = new { @class = "form-control", @Value=data } })
+                @Html.EditorFor(model => model.Conta.DataDaConta, new { htmlAttributes = new { @class = "form-control", @Value = data } })
                 @Html.ValidationMessageFor(model => model.Conta.DataDaConta, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-4">
                 @Html.LabelFor(model => model.Conta.Saldo)
-                @Html.EditorFor(model => model.Conta.Saldo, new { htmlAttributes = new { @class = "form-control", @Value=0 } })
+                @Html.EditorFor(model => model.Conta.Saldo, new { htmlAttributes = new { @class = "form-control", @Value = 0 } })
                 @Html.ValidationMessageFor(model => model.Conta.Saldo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -231,35 +231,47 @@
             <hr />
         </div>
     </div>
-}
+    </form>
 
-<div>
-    @Html.ActionLink("Voltar a Página de Login", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Voltar a Página de Login", "Index")
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/inputmask")
-}
-
-
-<script type="text/javascript">
-    function habilitar(selecionado) {
-        if (selecionado == true)
-            document.getElementById('salvar').disabled = false;
-        else
-            document.getElementById('salvar').disabled = true;
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/inputmask")
     }
 
-</script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        function habilitar(selecionado) {
+            if (selecionado == true)
+                document.getElementById('salvar').disabled = false;
+            else
+                document.getElementById('salvar').disabled = true;
+        }
 
-<script type="text/javascript">
-    $("#ddd").mask("(00)");
-    $("#telefone").mask("00000-0000");
-    $("#cpf").mask("000.000.000-00");
-    $("#data").mask("00/00/0000");
-    $("#cnpj").mask("00.000.000/0000-00");
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+        $("#ddd").mask("(00)");
+        $("#telefone").mask("00000-0000");
+        $("#cpf").mask("000.000.000-00");
+        $("#data").mask("00/00/0000");
+        $("#cnpj").mask("00.000.000/0000-00");
+    </script>
+
+    <script type="text/javascript" language="JavaScript">
+<!--
+        function comparaSenha(theForm) {
+            if (theForm.Senha.value != theForm.confirmarSenha.value) {
+                alert('A confirmação de senha deve ser igual a senha');
+                return false;
+            } else {
+                return true;
+            }
+        }
     </script>
