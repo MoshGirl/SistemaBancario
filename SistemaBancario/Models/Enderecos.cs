@@ -10,11 +10,18 @@ namespace SistemaBancario.Models
     public class Enderecos
     {
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "País")]
         public string Pais { get; set; }
+        [Required]
         public string Estado { get; set; }
+        [Required]
         public string Cidade { get; set; }
+        [Required]
         public string Bairro { get; set; }
+        [Required]
         public string Rua { get; set; }
+        [Required]
         public string Numero { get; set; }
         public string Complemento { get; set; }
 
