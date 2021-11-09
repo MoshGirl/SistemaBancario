@@ -10,7 +10,9 @@ namespace SistemaBancario.Models
     public class Telefones
     {
         public int Id { get; set; }
+        [Required]
         public string DDD { get; set; }
+        [Required]
         public string Telefone { get; set; }
 
         //public Usuarios Usuarios; 
