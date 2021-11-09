@@ -67,11 +67,13 @@
                 @Html.DropDownListFor(model => model.EstadoCivil,
    new SelectList(Enum.GetValues(typeof(EstadoCivil))),
    "Estado Civil")
+                @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
                 @Html.DropDownListFor(model => model.AtividadeAtual,
   new SelectList(Enum.GetValues(typeof(AtividadeAtual))),
   "Atividade Atual")
+                @Html.ValidationMessageFor(model => model.AtividadeAtual, "", new { @class = "text-danger" })
 
             </div>
             <div class="col-md-1" id="DDD">
@@ -268,6 +270,8 @@
         } else {
             return true;
         }
+
+    }
 
 
     }
