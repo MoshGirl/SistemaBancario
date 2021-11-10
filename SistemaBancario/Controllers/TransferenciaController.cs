@@ -42,44 +42,47 @@ namespace SistemaBancario.Controllers
             Conta contaParaTransferir = new Conta();
             contaTitular = db.Conta.Find(idLogado);
 
-            if (contaTitular.Saldo > valor && !contaTitular.NumeroDaConta.Equals(numeroConta)) {
-                
+            if (contaTitular.Saldo > valor && !contaTitular.NumeroDaConta.Equals(numeroConta))
+            {
+
                 contaParaTransferir = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta))
                     .FirstOrDefault();
 
-                if(contaParaTransferir != null)
+                if (contaParaTransferir != null)
                 {
 
-                
-                var user = db.Usuarios.Find(idLogado);
+
+                    var user = db.Usuarios.Find(idLogado);
 
 
-                contaParaTransferir.Saldo = contaParaTransferir.Saldo + valor;
-                contaTitular.Saldo = contaTitular.Saldo - valor;
+                    contaParaTransferir.Saldo = contaParaTransferir.Saldo + valor;
+                    contaTitular.Saldo = contaTitular.Saldo - valor;
 
-                Historico historico = new Historico();
-                historico.Data = DateTime.Now;
-                historico.Descricao = "Transferencia para conta: "+numeroConta;
-                historico.Tipo = "D";
-                historico.Valor = valor;
-                historico.id_usuario = (int)Session["UsuarioLogadoId"];
+                    Historico historico = new Historico();
+                    historico.Data = DateTime.Now;
+                    historico.Descricao = "Transferencia para conta: " + numeroConta;
+                    historico.Tipo = "D";
+                    historico.Valor = valor;
+                    historico.id_usuario = (int)Session["UsuarioLogadoId"];
 
-                //----------------------------------------------------
+                    //----------------------------------------------------
 
-                Historico historicoUserRecebe = new Historico();
-                historicoUserRecebe.Data = DateTime.Now;
-                historicoUserRecebe.Descricao = "Deposito de : "+user.Nome;
-                historicoUserRecebe.Tipo = "R";
-                historicoUserRecebe.Valor = valor;
-                Conta conta = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta)).FirstOrDefault();
-                historicoUserRecebe.id_usuario = conta.Id;
+                    Historico historicoUserRecebe = new Historico();
+                    historicoUserRecebe.Data = DateTime.Now;
+                    historicoUserRecebe.Descricao = "Deposito de : " + user.Nome;
+                    historicoUserRecebe.Tipo = "R";
+                    historicoUserRecebe.Valor = valor;
+                    Conta conta = db.Conta.Where(a => a.NumeroDaConta.Equals(numeroConta)).FirstOrDefault();
+                    historicoUserRecebe.id_usuario = conta.Id;
 
-                db.Historico.Add(historico);
-                db.Historico.Add(historicoUserRecebe);
+                    db.Historico.Add(historico);
+                    db.Historico.Add(historicoUserRecebe);
 
-                db.SaveChanges();
-                ViewBag.mensagemSucesso = "Transferencia realizada!";
-                return View();
+                    db.SaveChanges();
+                    var saldoUsuario = _validarSaldoService.ConsultaSaldo((int)idLogado);
+                    ViewBag.Saldo = saldoUsuario;
+                    ViewBag.mensagemSucesso = "Transferencia realizada!";
+                    return View();
                 }
                 else
                 {
@@ -94,6 +97,8 @@ namespace SistemaBancario.Controllers
 
             else
             {
+                var saldoUsuario = _validarSaldoService.ConsultaSaldo((int)idLogado);
+                ViewBag.Saldo = saldoUsuario;
                 ViewBag.mensagemErro = "Erro ao encontrar destinatario ou por falta de saldo! ";
                 return View();
             }
@@ -110,7 +115,7 @@ namespace SistemaBancario.Controllers
             var user = db.Usuarios.Find(idLogado);
 
             contaParaTransferir = (Conta)db.Usuarios.Where(a => a.CPF.Equals(cpf));
-           
+
             contaParaTransferir.Saldo = contaParaTransferir.Saldo + valor;
             contaTitular.Saldo = contaTitular.Saldo - valor;
 
