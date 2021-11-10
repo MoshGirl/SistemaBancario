@@ -248,6 +248,8 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Emprestimos\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
+    <Content Include="Views\Emprestimos\Solicitar.cshtml" />
+    <Content Include="Views\Emprestimos\ver.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

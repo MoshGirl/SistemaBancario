@@ -11,6 +11,7 @@ namespace SistemaBancario.Models
         public DateTime DiaVencimento { get; set; }
         public DateTime DiaPago { get; set; }
         public double TotalPago { get; set; }
-        public Usuarios Usuarios { get; set; }
+        public int id_usuario { get; set; }
+
     }
 }

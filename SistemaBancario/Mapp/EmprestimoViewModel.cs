@@ -16,7 +16,7 @@ namespace SistemaBancario.Mapp
         public DateTime DiaVencimento { get; set; }
         public DateTime DiaPago { get; set; }
         public double TotalPago { get; set; }
-        public Usuarios Usuarios { get; set; }
+        public int id_usuario { get; set; }
 
         static void Main(string[] args)
         {

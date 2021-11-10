@@ -87,7 +87,7 @@ else
                         @Html.DisplayFor(modelItem => item.Descricao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Valor)
+                        @Html.DisplayFor(modelItem => item.Valor, new { @class="valor"})
                     </td>
 
                     @if (item.Tipo == "R")

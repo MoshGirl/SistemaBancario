@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<SistemaBancario.Models.Emprestimos>
-@{
-    ViewBag.Title = "Index";
 
+@{
+    ViewBag.Title = "ver";
 }
+
 <div class="container p-3 my-3 bg-dark text-white">
     <p class="h3 text-center">Deseja solicitar um novo empréstimo? <a type="button" href="~/Emprestimos/Solicitar" class="btn btn-dark">Solicitar</a></p>
 </div>
@@ -11,7 +12,7 @@
     {
         <li><a data-toggle="tab" href="#@item.Id">Empréstimo R$: @item.ValorTotal,00</a></li>
     }
-</ul>
+    </ul>
 <div class="tab-content">
 
     @foreach (var item in Model)
