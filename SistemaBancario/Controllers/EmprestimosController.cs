@@ -51,6 +51,25 @@ namespace SistemaBancario.Controllers
             emprestimos.DiaPago = dataVencimento;
             emprestimos.id_usuario = (int)Session["UsuarioLogadoId"];
 
+            
+
+
+             conta = db.Conta.Find(idLogado);
+            
+
+            // var usuarios = db.Usuarios.Where(a => a.id == "4").FirstOrDefault();
+
+            conta.Saldo += emprestimos.ValorTotal;
+
+
+            Historico historico = new Historico();
+            historico.Data = DateTime.Now;
+            historico.Descricao = "Emprestimo";
+            historico.Tipo = "R";
+            historico.Valor = emprestimos.ValorTotal;
+            historico.id_usuario = (int)Session["UsuarioLogadoId"];
+
+            db.Historico.Add(historico);
             db.Emprestimos.Add(emprestimos);
             db.SaveChanges();
 
