@@ -43,13 +43,30 @@ namespace SistemaBancario.Controllers
             DateTime dataVencimento = Convert.ToDateTime(data);
             dataVencimento.AddDays(+30);
 
-            emprestimos.ValorTotal = emprestimosView.ValorTotal;
+            var valorEmprestimoSemJuros = emprestimosView.ValorTotal;
+
+            emprestimos.ValorDoJuros = emprestimosView.ValorTotal * 0.05;
+            emprestimos.ValorTotal = emprestimosView.ValorTotal + emprestimos.ValorDoJuros;
             emprestimos.NumeroDeParcelas = emprestimosView.NumeroDeParcelas;
-            emprestimos.ValorDoJuros = 5;
+            
             emprestimos.TotalPago = 0;
             emprestimos.DiaVencimento = dataVencimento;
             emprestimos.DiaPago = dataVencimento;
             emprestimos.id_usuario = (int)Session["UsuarioLogadoId"];
+
+            //===========================
+            conta = db.Conta.Find(idLogado);
+            conta.Saldo += valorEmprestimoSemJuros;
+
+
+            Historico historico = new Historico();
+            historico.Data = DateTime.Now;
+            historico.Descricao = "Emprestimo";
+            historico.Tipo = "R";
+            historico.Valor = emprestimosView.ValorTotal;
+            historico.id_usuario = (int)Session["UsuarioLogadoId"];
+
+            db.Historico.Add(historico);
 
             db.Emprestimos.Add(emprestimos);
             db.SaveChanges();
