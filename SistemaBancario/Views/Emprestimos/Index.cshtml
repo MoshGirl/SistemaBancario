@@ -9,7 +9,7 @@
 <ul class="nav nav-tabs">
     @foreach (var item in Model)
     {
-        <li><a data-toggle="tab" href="#@item.Id">Empréstimo R$: @item.ValorTotal,00</a></li>
+        <li><a data-toggle="tab" href="#@item.Id">Empréstimo R$: @item.ValorTotal.ToString("000.00")</a></li>
     }
 </ul>
 <div class="tab-content">
@@ -45,19 +45,41 @@
                                 <div class="col-md-4 text-left">
                                     <span class="label label-warning">
                                         @{
-                                            var dataVencimento = item.DiaVencimento.ToString("dd/MM/yyyy");
+                                            DateTime dataVencimento = item.DiaVencimento;
+                                            dataVencimento = dataVencimento.AddDays(30 * i);
                                         }
-                                        Vencimento:@dataVencimento
+                                        Vencimento: @dataVencimento.ToString("dd/MM/yyyy")
                                     </span>
                                 </div>
                                 @{
                                     if (item.DiaPago != item.DiaVencimento)
                                     {
+
                                         <div class="col-md-4 text-center"><button type="button" class="btn btn-primary btn-xs">Imprimir Recibo</button></div>
                                     }
                                     else
                                     {
-                                        <div class="col-md-4 text-center"><button type="button" class="btn btn-primary btn-xs">Pagar</button></div>
+                                        <div class="col-md-4 text-center">
+                                            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#@item.Id@i">
+                                                Pagar
+                                            </button>
+
+                                            <div class="modal fade" id="@item.Id@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @valor
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     }
                                 }
 
