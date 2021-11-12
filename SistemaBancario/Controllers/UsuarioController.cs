@@ -80,6 +80,7 @@ namespace SistemaBancario.Controllers
             Usuarios usuarios = db.Usuarios.Find(id);
             Enderecos end = db.Enderecos.Find(id);
             Telefones tel = db.Telefones.Find(id);
+            Conta conta = db.Conta.Find(id);
 
             if (usuarios == null)
             {

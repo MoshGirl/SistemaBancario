@@ -80,7 +80,7 @@
             @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
         </div>
     </div>
-    
+
     <hr />
     <h4>Endereço</h4>
     <div class="form-group">
@@ -148,7 +148,28 @@
             @Html.ValidationMessageFor(model => model.Telefones.Telefone, "", new { @class = "text-danger" })
         </div>
     </div>
-   
+
+    <div class="row " style="">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Conta.NumeroDaConta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Conta.NumeroDaConta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Conta.NumeroDaConta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Conta.DataDaConta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Conta.DataDaConta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Conta.DataDaConta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+  
+
+
+    </div>
+
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -158,9 +179,7 @@
 </div>
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
