@@ -19,20 +19,21 @@ namespace SistemaBancario.Controllers
 
             }
             else
-            {
+            {   
 
                 var db = new UsuarioContext();
                 var idLogado = Session["UsuarioLogadoId"];
 
-                var Conta = db.Conta.Find(idLogado);
+                Conta conta = new Conta();
                 Usuarios user = new Usuarios();
+
                 user = db.Usuarios.Find(idLogado);
-                
+                conta = db.Conta.Find(idLogado);
 
-                ViewBag.Saldo = user.Conta.Saldo;
-                ViewBag.NConta = user.Conta.NumeroDaConta;
 
-                
+                ViewBag.Saldo = conta.Saldo;
+                ViewBag.NConta = conta.NumeroDaConta;
+
 
                 int id = (int)Session["UsuarioLogadoId"];
                 double Receita=0;

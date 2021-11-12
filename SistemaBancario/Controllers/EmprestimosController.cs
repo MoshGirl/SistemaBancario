@@ -54,7 +54,6 @@ namespace SistemaBancario.Controllers
             emprestimos.DiaPago = dataVencimento;
             emprestimos.id_usuario = (int)Session["UsuarioLogadoId"];
 
-            //===========================
             conta = db.Conta.Find(idLogado);
             conta.Saldo += valorEmprestimoSemJuros;
 
